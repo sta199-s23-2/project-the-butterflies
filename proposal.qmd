@@ -58,9 +58,15 @@ glimpse(CollegeBasketballPlayers2009_2021)
 
 -   Identify the source of the data.
 
+    This is the Top Spotify hits from 2000-2019, top_spotify_songs, from Kaggle. https://www.kaggle.com/datasets/paradisejoy/top-hits-spotify-from-20002019
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+    The data was collected by Mark Koverha on Kaggle.
+
 -   Write a brief description of the observations.
+
+    This data set has 2000 observations and 16 columns of unique data sets (non-identifiers).
 
 ## Research question
 
