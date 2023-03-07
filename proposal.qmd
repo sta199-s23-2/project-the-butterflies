@@ -18,9 +18,15 @@ library(tidyverse)
 
 -   Identify the source of the data.
 
+    The College Basketball Players 2009-2021 dataset is from Kaggle (https://www.kaggle.com/datasets/adityak2003/college-basketball-players-20092021)
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+    The data was collected by Bart Torvik (barttorvik.com)
+
 -   Write a brief description of the observations.
+
+    The observations give 65 variables, from team to games played to shooting percentages and other statistics for 61,000 college basketball players from 2009-2021.
 
 ## Research question
 
@@ -30,7 +36,7 @@ library(tidyverse)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-## Literature 
+## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
@@ -64,7 +70,7 @@ library(tidyverse)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-## Literature 
+## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
@@ -98,7 +104,7 @@ library(tidyverse)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-## Literature 
+## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
