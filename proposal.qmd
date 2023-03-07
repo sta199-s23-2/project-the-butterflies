@@ -89,7 +89,7 @@ glimpse(CollegeBasketballPlayers2009_2021)
 ```{r}
 #| label: load-data-2
 
-# add code here
+glimpse(top_spotify_songs)
 ```
 
 # Data 3
