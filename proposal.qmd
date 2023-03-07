@@ -10,6 +10,7 @@ editor: visual
 #| message: false
 
 library(tidyverse)
+CollegeBasketballPlayers2009_2021 <- read_csv("CollegeBasketballPlayers2009-2021.csv")
 ```
 
 # Data 1
