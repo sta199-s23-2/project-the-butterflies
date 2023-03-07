@@ -10,6 +10,9 @@ editor: visual
 #| message: false
 
 library(tidyverse)
+CollegeBasketballPlayers2009_2021 <- read_csv("CollegeBasketballPlayers2009-2021.csv")
+
+top_spotify_songs <- read_csv("songs_normalize 3.csv")
 ```
 
 # Data 1
@@ -32,6 +35,8 @@ library(tidyverse)
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+How do various college basketball playing statistics influence players' NBA draft pick? Which statistic (efficiency rating, total points, shooting percentage, etc) is the best predictor of being a #1 or top 10 pick in the NBA draft?
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
@@ -39,6 +44,8 @@ library(tidyverse)
 ## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
+
+https://www.playingnumbers.com/2020/03/using-ncaa-stats-to-predict-nba-draft-order/
 
 -   Provide a one paragraph summary about the article.
 
