@@ -11,6 +11,8 @@ editor: visual
 
 library(tidyverse)
 CollegeBasketballPlayers2009_2021 <- read_csv("CollegeBasketballPlayers2009-2021.csv")
+
+top_spotify_songs <- read_csv("songs_normalize 3.csv")
 ```
 
 # Data 1
