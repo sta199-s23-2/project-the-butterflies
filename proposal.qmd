@@ -115,7 +115,11 @@ https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-a
 
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+Data was scraped and wrangled using r off of www.sports-reference.com by Randi H. Griffin.
+
 -   Write a brief description of the observations.
+
+-   
 
 ## Research question
 
