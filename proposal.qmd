@@ -39,7 +39,11 @@ How do various college basketball playing statistics influence players' NBA draf
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
+The research topic is performance statistics of players in college basketball and the potential association with draft picks.
+
 -   Identify the types of variables in your research question. Categorical? Quantitative?
+
+The majority of the variables are quantitative such as average or total points, steals, blocks, etc but there are also some categorical variables, such as year in school, team, and conference.
 
 ## Literature
 
@@ -49,7 +53,11 @@ https://www.playingnumbers.com/2020/03/using-ncaa-stats-to-predict-nba-draft-ord
 
 -   Provide a one paragraph summary about the article.
 
+This article discussed two potential models which were created in attempts to predict draft order based on college statistics. One of the models included data for the players from only that season before the draft in question, while the other model included data of every season the player played in college before entering the draft. One strong predictor these models found was age, with freshman predicted and actually drafted higher on average and players drafted lower each subsequent year. However, one problem the article mentions in using college statistics to predict NBA draft picks is that because many prospects are drafted based on potential, there were often freshman with worse statistics that were drafted higher because NBA teams may have believed they had underdeveloped talent, as opposed to players with better statistics who the NBA teams may have viewed as having already reached their peak ability.
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+Our research question is different than the article because it includes many more extensive variables than mentioned in the article, such as breaking down shots by dunks, rim shots, and midrange shots, along with categorizations such as conference which may influence players' success, so we will be able to look for more potential specific trends based on the numerous variables available.
 
 ## Glimpse of data
 
@@ -57,6 +65,7 @@ https://www.playingnumbers.com/2020/03/using-ncaa-stats-to-predict-nba-draft-ord
 #| label: load-data-1
 
 glimpse(CollegeBasketballPlayers2009_2021)
+
 ```
 
 # Data 2
