@@ -13,6 +13,8 @@ library(tidyverse)
 CollegeBasketballPlayers2009_2021 <- read_csv("CollegeBasketballPlayers2009-2021.csv")
 
 top_spotify_songs <- read_csv("songs_normalize 3.csv")
+
+olympic_data <- read_csv("athlete_events.csv")
 ```
 
 # Data 1
@@ -88,7 +90,11 @@ glimpse(CollegeBasketballPlayers2009_2021)
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+    1.  Do the most popular songs in any given year have the highest danceability ratings?
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
+
+    This research topic is on the correlation between popular songs being the most danceable, and any trends in this over time. For this, our hypothesis is that the higher the danceability rating is, the more popular the song is going to be.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
@@ -114,9 +120,15 @@ glimpse(top_spotify_songs)
 
 -   Identify the source of the data.
 
+https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+Data was scraped and wrangled using r off of www.sports-reference.com by Randi H. Griffin.
+
 -   Write a brief description of the observations.
+
+-   
 
 ## Research question
 
@@ -139,5 +151,5 @@ glimpse(top_spotify_songs)
 ```{r}
 #| label: load-data-3
 
-# add code here
+glimpse(olympic_data)
 ```
