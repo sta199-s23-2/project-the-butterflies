@@ -31,7 +31,7 @@ olympic_data <- read_csv("athlete_events.csv")
 
 -   Write a brief description of the observations.
 
-    The observations give 65 variables, from team to games played to shooting percentages and other statistics for 61,000 college basketball players from 2009-2021.
+    The observations give 65 variables related to college basketball for college basketball players from 2009-2021. Each of the 61,000 observations is one season by one player.
 
 ## Research question
 
