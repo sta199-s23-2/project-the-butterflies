@@ -128,7 +128,7 @@ Data was scraped and wrangled using r off of www.sports-reference.com by Randi H
 
 -   Write a brief description of the observations.
 
--   
+There are 15 columns and 271,116 rows. Each row repesents a different olympic athlete throughout the history of the olympics, while each column represents a different variable about that athlete, like year, country, medal, etc.
 
 ## Research question
 
