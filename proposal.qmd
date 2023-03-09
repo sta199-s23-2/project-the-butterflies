@@ -90,13 +90,15 @@ glimpse(CollegeBasketballPlayers2009_2021)
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
-    1.  Do the most popular songs in any given year have the highest danceability ratings?
+    Do the three most popular songs in any given year have the highest danceability ratings?
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
     This research topic is on the correlation between popular songs being the most danceable, and any trends in this over time. For this, our hypothesis is that the higher the danceability rating is, the more popular the song is going to be.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
+
+    These variables in this research question are both quantitative and categorical, danceability and popularity are both quantitative for this set, and year is categorical.
 
 ## Literature
 
