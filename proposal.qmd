@@ -104,9 +104,15 @@ glimpse(CollegeBasketballPlayers2009_2021)
 
 -   Find one published credible article on the topic you are interested in researching.
 
+    https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5990848/
+
 -   Provide a one paragraph summary about the article.
 
+    This article discusses trends in the popularity of music, as using characteristics of the song. The analysis uses 12 binary variables, including danceability, and 6 categorical variables. The analysis was also two-parted, the first was to analyze trends in the data, then the second part sought to discover if it was possible to predict the success of songs. The data found that overall trends in happiness and brightness in the music decreased in popularity over time, while danceability and genres such as electronic increased in popularity. The researchers were not able to predict more than 74% of "successful" songs in a given year, indicating that while these trends were part of the success of a song, they did not account for all of them.
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+    Our question is different because it focuses on this one variable, which is not binary in our data frame, and uses this to discover trends in popularity over time. As we have a more complex rating scale for our danceability and we are using popularity on Spotify charts rather than a success rating, we hope that our research will allow a more in-depth analysis of this trend than the previous research.
 
 ## Glimpse of data
 
