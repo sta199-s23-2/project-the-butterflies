@@ -148,9 +148,15 @@ Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
+https://slate.com/culture/2016/08/why-female-gymnasts-are-so-short.html
+
 -   Provide a one paragraph summary about the article.
 
+This article talks about the fact that the average height of Olympic female gymnasts have been getting shorter. 30 years ago, they were about 5 foot 3, but today they average out at about 4 foot 9. This is due to the fact of the advantage in gymnastics of being short. With a lower center of inertia, a higher power-weight ratio, and an easier time rotating in the air, it makes sense that gymnasts are better off smaller. The article finishes off by questioning if the average height will continue to decrease.
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+This talks about the average height for womens gymnastics. Our research question is different because we will be looking at which heights have the higher medal success rate, not just which heights exist in the olympics. Hopefully, by taking into account the earned medals, we will depict an even more accurate understanding of which heights are most likely to succeed.
 
 ## Glimpse of data
 
