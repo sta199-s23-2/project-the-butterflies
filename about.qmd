@@ -6,8 +6,7 @@ editor: visual
 
 This project was developed by **\[team name\]** For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following team members.
 
--   Team member 1: One sentence description of Team member 1 (e.g., year, major, etc.).
--   Team member 2: One sentence description of Team member 2 (e.g., year, major, etc.).
--   Team member 3: One sentence description of Team member 3 (e.g., year, major, etc.).
--   Team member 4: One sentence description of Team member 4 (e.g., year, major, etc.).
--   ...
+-   Team member 1: Carly Blank is a first year student at Duke.
+-   Team member 2: Catherine Purnell is a third year student at Duke.
+-   Team member 3: Dolce Feenaghty is a first year student at Duke.
+-   Team member 4: Ryan Silver is a first year student at Duke.
