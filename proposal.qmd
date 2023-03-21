@@ -90,7 +90,7 @@ glimpse(CollegeBasketballPlayers2009_2021)
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
-    1.  Do the most popular songs in any given year have the highest danceability ratings?
+    Do the three most popular songs in any given year have the highest danceability ratings?
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
@@ -98,13 +98,21 @@ glimpse(CollegeBasketballPlayers2009_2021)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
+    These variables in this research question are both quantitative and categorical, danceability and popularity are both quantitative for this set, and year is categorical.
+
 ## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
+    https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5990848/
+
 -   Provide a one paragraph summary about the article.
 
+    This article discusses trends in the popularity of music, as using characteristics of the song. The analysis uses 12 binary variables, including danceability, and 6 categorical variables. The analysis was also two-parted, the first was to analyze trends in the data, then the second part sought to discover if it was possible to predict the success of songs. The data found that overall trends in happiness and brightness in the music decreased in popularity over time, while danceability and genres such as electronic increased in popularity. The researchers were not able to predict more than 74% of "successful" songs in a given year, indicating that while these trends were part of the success of a song, they did not account for all of them.
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+    Our question is different because it focuses on this one variable, which is not binary in our data frame, and uses this to discover trends in popularity over time. As we have a more complex rating scale for our danceability and we are using popularity on Spotify charts rather than a success rating, we hope that our research will allow a more in-depth analysis of this trend than the previous research.
 
 ## Glimpse of data
 
@@ -128,23 +136,35 @@ Data was scraped and wrangled using r off of www.sports-reference.com by Randi H
 
 -   Write a brief description of the observations.
 
--   
+There are 15 columns and 271,116 rows. Each row repesents a different olympic athlete throughout the history of the olympics, while each column represents a different variable about that athlete, like year, country, medal, etc.
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+How do factors like age, height, and weight correlate with medal success rate across the different sports?
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
+
+For this research topic, we would have to take a look at which ages, heights, and weights have received medals. I would hypothesize that for each separate sport, there is a different normal distribution for ages, heights, and weights that have medal success rates, with an ideal age, height, and weight for each individual sport.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-## Literature
+My research question would involve the age (quantitative), height (quantitative), weight (quantitative), sport (categorical), and medal (categorical).
+
+Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
+https://slate.com/culture/2016/08/why-female-gymnasts-are-so-short.html
+
 -   Provide a one paragraph summary about the article.
 
+This article talks about the fact that the average height of Olympic female gymnasts have been getting shorter. 30 years ago, they were about 5 foot 3, but today they average out at about 4 foot 9. This is due to the fact of the advantage in gymnastics of being short. With a lower center of inertia, a higher power-weight ratio, and an easier time rotating in the air, it makes sense that gymnasts are better off smaller. The article finishes off by questioning if the average height will continue to decrease.
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+This talks about the average height for womens gymnastics. Our research question is different because we will be looking at which heights have the higher medal success rate, not just which heights exist in the olympics. Hopefully, by taking into account the earned medals, we will depict an even more accurate understanding of which heights are most likely to succeed.
 
 ## Glimpse of data
 
