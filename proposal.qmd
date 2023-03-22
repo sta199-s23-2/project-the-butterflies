@@ -8,6 +8,7 @@ editor: visual
 ```{r}
 #| label: load-pkgs
 #| message: false
+#| warning: false
 
 library(tidyverse)
 CollegeBasketballPlayers2009_2021 <- read_csv("CollegeBasketballPlayers2009-2021.csv")
