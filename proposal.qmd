@@ -42,11 +42,11 @@ How do various college basketball playing statistics influence players' NBA draf
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
-The research topic is performance statistics of players in college basketball and the potential association with draft picks.
+The research topic is performance statistics of players in college basketball and the potential association with draft picks. We hypothesize that efficiency rating will be the best predictor of draft pick with a higher efficiency rating predicting a lower numerical draft pick. Performance statistics to be considered were chosen based on general basketball knowledge and will be tested using linear regression models.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-The majority of the variables are quantitative such as average or total points, steals, blocks, etc but there are also some categorical variables, such as year in school, team, and conference.
+The majority of the variables are quantitative such as average or total points, steals, blocks, etc but there are also some categorical variables, such as year in school, team, and conference. For the response variable 'pick', observations with 'NA's will be removed from the data set.
 
 ## Literature
 
