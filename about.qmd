@@ -4,7 +4,7 @@ format: html
 editor: visual
 ---
 
-This project was developed by **\[team name\]** For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following team members.
+This project was developed by **\[team name\]** For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following four team members.
 
 -   Team member 1: Carly Blank is a first year student at Duke.
 -   Team member 2: Catherine Purnell is a third year student at Duke.
