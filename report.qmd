@@ -7,6 +7,12 @@ execute:
   echo: true
 ---
 
+```{r}
+library(tidyverse)
+
+olympic_data <- read_csv("athlete_events.csv")
+```
+
 ## INTRODUCTION
 
 describe your topic (citing sources)
