@@ -7,4 +7,18 @@ execute:
   echo: true
 ---
 
-Add project writeup here.
+## INTRODUCTION
+
+describe your topic (citing sources)
+
+provide a concise, clear statement of your research question and hypotheses
+
+consider any potential ethical issues that you believe should be addressed (if any) regarding how your data were collected
+
+identify the source of the data
+
+when and how it was collected
+
+the cases
+
+a general description of relevant variables
