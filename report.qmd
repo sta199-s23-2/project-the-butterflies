@@ -22,3 +22,22 @@ when and how it was collected
 the cases
 
 a general description of relevant variables
+
+## METHODOLOGY
+
+visualizations and summary statistics relevant to your research question
+
+justify the choice of statistical method(s) used to answer your research question
+
+## RESULTS
+
+showcase how you arrived at answers to your research question using the techniques we have learned in class
+
+provide only the main results from your analysis
+
+demonstrate that you are proficient at asking meaningful questions and answering them using data
+
+that you are skilled in interpreting and presenting results
+
+and that you can accomplish these tasks using R
+
