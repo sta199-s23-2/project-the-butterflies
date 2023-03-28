@@ -41,7 +41,7 @@ justify the choice of statistical method(s) used to answer your research questio
 
 ## RESULTS
 
-1.   select only the parts of the data set we need (filter by sports)
+1.  select only the parts of the data set we need (filter by sports)
 2.  mutate to get the medal values numeric
 3.  visualize the height and weight and whether or not they received a medal
 4.  then separate by gender and see if it changes
