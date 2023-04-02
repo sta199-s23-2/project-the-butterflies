@@ -59,7 +59,7 @@ olympic_data <- read_csv("athlete_events.csv")
 ```{r}
 #| label: filter
 
-olympic_data |>
+data <- olympic_data |>
   filter(Sport == "Swimming" | Sport == "Gymnastics") |>
   select(Sex, Age, Height, Weight, Medal, Sport) |>
   filter(!is.na(Age)) |>
@@ -72,9 +72,14 @@ olympic_data |>
   mutate(Points = case_when(Medal == "Gold" ~ 3,
                             Medal == "Silver" ~ 2,
                             Medal == "Bronze" ~ 1,
-                            is.na(Medal) ~ 0))
+                            is.na(Medal) ~ 0)) 
 
 
+
+```
+
+```{r}
+#| label: visualization
 
 ```
 
