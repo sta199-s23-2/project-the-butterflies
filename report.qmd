@@ -29,7 +29,7 @@ Each case in this dataset corresponds to an individual athlete competing in an i
 
 ## a general description of relevant variables
 
-For our research question, the relevant variables include the numerical variables age (in years), height (in centimeters), weight (in kilograms), and sport (character strings). For our analysis, we will filter the dataset to only include gymnastics and swimming, the sports we are interested in analyzing.
+For our research question, the relevant variables include the numerical variables age (in years), height (in centimeters), and weight (in kilograms), along with medal won, sex, and sport (character strings). For our analysis, we will filter the dataset to only include gymnastics and swimming, the sports we are interested in analyzing.
 
 For this research topic, we would have to take a look at which ages, heights, and weights have received medals. I would hypothesize that for each separate sport, there is a different normal distribution for ages, heights, and weights that have medal success rates, with an ideal age, height, and weight for each individual sport.
 
@@ -60,7 +60,22 @@ olympic_data <- read_csv("athlete_events.csv")
 #| label: filter
 
 olympic_data |>
-  filter(Sport == "Swimming" | Sport == "Gymnastics")
+  filter(Sport == "Swimming" | Sport == "Gymnastics") |>
+  select(Sex, Age, Height, Weight, Medal, Sport) |>
+  filter(!is.na(Age)) |>
+  filter(!is.na(Height)) |>
+  filter(!is.na(Weight)) |>
+  mutate(Category = case_when(Sex == "F" & Sport == "Gymnastics" ~ "Female Gymnastics",
+                        Sex == "F" & Sport == "Swimming" ~ "Female Swimming",
+                        Sex == "M" & Sport == "Gymnastics" ~ "Male Gymnastics",
+                        Sex == "M" & Sport == "Swimming" ~ "Male Swimming")) |>
+  mutate(Points = case_when(Medal == "Gold" ~ 3,
+                            Medal == "Silver" ~ 2,
+                            Medal == "Bronze" ~ 1,
+                            is.na(Medal) ~ 0))
+
+
+
 ```
 
 # RESULTS
