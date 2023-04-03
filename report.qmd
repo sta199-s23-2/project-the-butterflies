@@ -6,6 +6,7 @@ editor: visual
 execute:
   echo: true
 ---
+
 ```{r}
 library(tidyverse)
 
@@ -14,29 +15,19 @@ olympic_data <- read_csv("athlete_events.csv")
 
 ## INTRODUCTION
 
-## describe your topic (citing sources)
+## describe your topic (citing sources), provide a concise, clear statement of your research question and hypotheses, consider any potential ethical issues that you believe should be addressed (if any) regarding how your data were collected, identify the source of the data, when and how it was collected, the cases, a general description of relevant variables
 
-Our topic is the age, height, and weight of Olympic athletes in the sports of gymnastics and swimming. (idk what else to say)
+For this research project, we chose the topic of Olympic athletes from the sports of Swimming and Gymnastics. We are looking into the specific variables of age, height, and weight to see how these affect performance at a high level, and how these vary across the two sports. As such, our research question is: how do factors like age, height, and weight correlate with medal success rate across gymnastics and swimming? For this question, we hypothesize that the ideal height, weight, and age to win a medal will all be greater in swimming than in gymnastics.
 
-## provide a concise, clear statement of your research question and hypotheses
+To answer this research question, we will use the relevant variables of age, height, weight, medal won, sex, and sport. The numerical variables are age (in years), height (in centimeters), and weight (in kilograms). The character variables we are using are medal won, sex, and sport. For our analysis, we will filter the data set to only include gymnastics and swimming, the sports we are interested in analyzing.
 
-How do factors like age, height, and weight correlate with medal success rate across gymnastics and swimming? We hypothesize that the ideal height, weight, and age to win a medal will all be greater in swimming than in gymnastics.
+We found this data set online at Kaggle, but the original data was from www.sports-reference.com. It was researched by a group of Olympic history enthusiasts and compiled into the data set format using R by Randi H. Griffin. The data was uploaded to the Kaggle website in 2018.
 
-## consider any potential ethical issues that you believe should be addressed (if any) regarding how your data were collected
+Using this data set, there are minimal to no ethical concerns, as this data was collected from a publicaally accessible site. Additionally, all of this data was able be compiled by anyone, as Olympic athletes and their medals are also public information. We did not interview or collect any information ourselves, and their is no private health information or other private information availible in this data.  As such, there are no risks to the participants in our data collection and use of this data. 
 
-## identify the source of the data, when and how it was collected
+Each case in this data set corresponds to an individual athlete competing in an individual Olympic event between the years of 1896 and 2016. While we are only using the variables described above, this data set also includes team, year, games, city, and event for each case. 
 
-This data is from www.sports-reference.com and was researched by a group of Olympic history enthusiasts. It was then compiled into the dataset format using R by Randi H. Griffin and uploaded to the Kaggle website in 2018.
-
-## the cases
-
-Each case in this dataset corresponds to an individual athlete competing in an individual Olympic event between the years of 1896 and 2016.
-
-## a general description of relevant variables
-
-For our research question, the relevant variables include the numerical variables age (in years), height (in centimeters), and weight (in kilograms), along with medal won, sex, and sport (character strings). For our analysis, we will filter the dataset to only include gymnastics and swimming, the sports we are interested in analyzing.
-
-For this research topic, we would have to take a look at which ages, heights, and weights have received medals. I would hypothesize that for each separate sport, there is a different normal distribution for ages, heights, and weights that have medal success rates, with an ideal age, height, and weight for each individual sport.
+For this research topic, we will have to view which ages, heights, and weights have received medals. I would hypothesize that for each separate sport, there is a different normal distribution for ages, heights, and weights that have medal success rates, showing an ideal age, height, and weight for each sport we visualize. 
 
 # METHODOLOGY
 
