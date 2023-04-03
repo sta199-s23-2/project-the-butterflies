@@ -6,7 +6,6 @@ editor: visual
 execute:
   echo: true
 ---
-
 ```{r}
 library(tidyverse)
 
@@ -15,31 +14,81 @@ olympic_data <- read_csv("athlete_events.csv")
 
 ## INTRODUCTION
 
-describe your topic (citing sources)
+## describe your topic (citing sources)
 
-provide a concise, clear statement of your research question and hypotheses
+Our topic is the age, height, and weight of Olympic athletes in the sports of gymnastics and swimming. (idk what else to say)
 
-consider any potential ethical issues that you believe should be addressed (if any) regarding how your data were collected
+## provide a concise, clear statement of your research question and hypotheses
 
-identify the source of the data
+How do factors like age, height, and weight correlate with medal success rate across gymnastics and swimming? We hypothesize that the ideal height, weight, and age to win a medal will all be greater in swimming than in gymnastics.
 
-when and how it was collected
+## consider any potential ethical issues that you believe should be addressed (if any) regarding how your data were collected
 
-the cases
+## identify the source of the data, when and how it was collected
 
-a general description of relevant variables
+This data is from www.sports-reference.com and was researched by a group of Olympic history enthusiasts. It was then compiled into the dataset format using R by Randi H. Griffin and uploaded to the Kaggle website in 2018.
+
+## the cases
+
+Each case in this dataset corresponds to an individual athlete competing in an individual Olympic event between the years of 1896 and 2016.
+
+## a general description of relevant variables
+
+For our research question, the relevant variables include the numerical variables age (in years), height (in centimeters), and weight (in kilograms), along with medal won, sex, and sport (character strings). For our analysis, we will filter the dataset to only include gymnastics and swimming, the sports we are interested in analyzing.
 
 For this research topic, we would have to take a look at which ages, heights, and weights have received medals. I would hypothesize that for each separate sport, there is a different normal distribution for ages, heights, and weights that have medal success rates, with an ideal age, height, and weight for each individual sport.
 
-How do factors like age, height, and weight correlate with medal success rate across gymnastics and swimming?
-
-## METHODOLOGY
+# METHODOLOGY
 
 visualizations and summary statistics relevant to your research question
 
 justify the choice of statistical method(s) used to answer your research question
 
-## RESULTS
+```{r}
+#| label: packages
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(tidymodels)
+```
+
+```{r}
+#| label: data
+#| message: false
+#| warning: false
+
+olympic_data <- read_csv("athlete_events.csv")
+```
+
+```{r}
+#| label: filter
+
+data <- olympic_data |>
+  filter(Sport == "Swimming" | Sport == "Gymnastics") |>
+  select(Sex, Age, Height, Weight, Medal, Sport) |>
+  filter(!is.na(Age)) |>
+  filter(!is.na(Height)) |>
+  filter(!is.na(Weight)) |>
+  mutate(Category = case_when(Sex == "F" & Sport == "Gymnastics" ~ "Female Gymnastics",
+                        Sex == "F" & Sport == "Swimming" ~ "Female Swimming",
+                        Sex == "M" & Sport == "Gymnastics" ~ "Male Gymnastics",
+                        Sex == "M" & Sport == "Swimming" ~ "Male Swimming")) |>
+  mutate(Points = case_when(Medal == "Gold" ~ 3,
+                            Medal == "Silver" ~ 2,
+                            Medal == "Bronze" ~ 1,
+                            is.na(Medal) ~ 0)) 
+
+
+
+```
+
+```{r}
+#| label: visualization
+
+```
+
+# RESULTS
 
 1.  select only the parts of the data set we need (filter by sports)
 2.  mutate to get the medal values numeric

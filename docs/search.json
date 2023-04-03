@@ -4,7 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Team member 1: One sentence description of Team member 1 (e.g., year, major, etc.).\nTeam member 2: One sentence description of Team member 2 (e.g., year, major, etc.).\nTeam member 3: One sentence description of Team member 3 (e.g., year, major, etc.).\nTeam member 4: One sentence description of Team member 4 (e.g., year, major, etc.).\n…"
+    "text": "Team member 1: Carly Blank is a first year student at Duke.\nTeam member 2: Catherine Purnell is a third year student at Duke.\nTeam member 3: Dolce Feenaghty is a first year student at Duke.\nTeam member 4: Ryan Silver is a first year student at Duke."
   },
   {
     "objectID": "index.html",
@@ -18,77 +18,77 @@
     "href": "proposal.html",
     "title": "Project title",
     "section": "",
-    "text": "library(tidyverse)\n\nWarning: package 'ggplot2' was built under R version 4.2.2\n\n\nWarning: package 'tidyr' was built under R version 4.2.2\n\n\nWarning: package 'readr' was built under R version 4.2.2\n\n\nWarning: package 'purrr' was built under R version 4.2.2"
+    "text": "library(tidyverse)\nCollegeBasketballPlayers2009_2021 <- read_csv(\"CollegeBasketballPlayers2009-2021.csv\")\n\ntop_spotify_songs <- read_csv(\"songs_normalize 3.csv\")\n\nolympic_data <- read_csv(\"athlete_events.csv\")"
   },
   {
     "objectID": "proposal.html#introduction-and-data",
     "href": "proposal.html#introduction-and-data",
     "title": "Project title",
     "section": "Introduction and data",
-    "text": "Introduction and data\n\nIdentify the source of the data.\nState when and how it was originally collected (by the original data curator, not necessarily how you found the data).\nWrite a brief description of the observations."
+    "text": "Introduction and data\n\nIdentify the source of the data.\nThe College Basketball Players 2009-2021 dataset is from Kaggle (https://www.kaggle.com/datasets/adityak2003/college-basketball-players-20092021)\nState when and how it was originally collected (by the original data curator, not necessarily how you found the data).\nThe data was collected by Bart Torvik (barttorvik.com)\nWrite a brief description of the observations.\nThe observations give 65 variables related to college basketball for college basketball players from 2009-2021. Each of the 61,000 observations is one season by one player."
   },
   {
     "objectID": "proposal.html#research-question",
     "href": "proposal.html#research-question",
     "title": "Project title",
     "section": "Research question",
-    "text": "Research question\n\nA well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)\nA description of the research topic along with a concise statement of your hypotheses on this topic.\nIdentify the types of variables in your research question. Categorical? Quantitative?"
+    "text": "Research question\n\nA well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)\n\nHow do various college basketball playing statistics influence players’ NBA draft pick? Which statistic (efficiency rating, total points, shooting percentage, etc) is the best predictor of being a #1 or top 10 pick in the NBA draft?\n\nA description of the research topic along with a concise statement of your hypotheses on this topic.\n\nThe research topic is performance statistics of players in college basketball and the potential association with draft picks. We hypothesize that efficiency rating will be the best predictor of draft pick with a higher efficiency rating predicting a lower numerical draft pick. Performance statistics to be considered were chosen based on general basketball knowledge and will be tested using linear regression models.\n\nIdentify the types of variables in your research question. Categorical? Quantitative?\n\nThe majority of the variables are quantitative such as average or total points, steals, blocks, etc but there are also some categorical variables, such as year in school, team, and conference. For the response variable ‘pick’, observations with ’NA’s will be removed from the data set."
   },
   {
     "objectID": "proposal.html#literature",
     "href": "proposal.html#literature",
     "title": "Project title",
     "section": "Literature",
-    "text": "Literature\n\nFind one published credible article on the topic you are interested in researching.\nProvide a one paragraph summary about the article.\nIn 1-2 sentences, explain how your research question builds on / is different than the article you have cited."
+    "text": "Literature\n\nFind one published credible article on the topic you are interested in researching.\n\nhttps://www.playingnumbers.com/2020/03/using-ncaa-stats-to-predict-nba-draft-order/\n\nProvide a one paragraph summary about the article.\n\nThis article discussed two potential models which were created in attempts to predict draft order based on college statistics. One of the models included data for the players from only that season before the draft in question, while the other model included data of every season the player played in college before entering the draft. One strong predictor these models found was age, with freshman predicted and actually drafted higher on average and players drafted lower each subsequent year. However, one problem the article mentions in using college statistics to predict NBA draft picks is that because many prospects are drafted based on potential, there were often freshman with worse statistics that were drafted higher because NBA teams may have believed they had underdeveloped talent, as opposed to players with better statistics who the NBA teams may have viewed as having already reached their peak ability.\n\nIn 1-2 sentences, explain how your research question builds on / is different than the article you have cited.\n\nOur research question is different than the article because it includes many more extensive variables than mentioned in the article, such as breaking down shots by dunks, rim shots, and midrange shots, along with categorizations such as conference which may influence players’ success, so we will be able to look for more potential specific trends based on the numerous variables available."
   },
   {
     "objectID": "proposal.html#glimpse-of-data",
     "href": "proposal.html#glimpse-of-data",
     "title": "Project title",
     "section": "Glimpse of data",
-    "text": "Glimpse of data\n\n# add code here"
+    "text": "Glimpse of data\n\nglimpse(CollegeBasketballPlayers2009_2021)\n\nRows: 61,061\nColumns: 66\n$ player_name                       <chr> \"DeAndrae Ross\", \"Pooh Williams\", \"J…\n$ team                              <chr> \"South Alabama\", \"Utah St.\", \"South …\n$ conf                              <chr> \"SB\", \"WAC\", \"BE\", \"WCC\", \"BW\", \"Hor…\n$ GP                                <dbl> 26, 34, 27, 30, 33, 6, 27, 19, 30, 3…\n$ Min_per                           <dbl> 29.5, 60.9, 72.0, 44.5, 56.2, 0.7, 7…\n$ Ortg                              <dbl> 97.3, 108.3, 96.2, 97.7, 96.5, 0.0, …\n$ usg                               <dbl> 16.6, 14.9, 21.8, 16.0, 22.0, 0.0, 2…\n$ eFG                               <dbl> 42.5, 52.4, 45.7, 53.6, 52.8, 0.0, 5…\n$ TS_per                            <dbl> 44.43, 54.48, 47.98, 53.69, 54.31, 0…\n$ ORB_per                           <dbl> 1.6, 3.8, 2.1, 4.1, 8.3, 0.0, 6.8, 2…\n$ DRB_per                           <dbl> 4.6, 6.3, 8.0, 9.4, 18.6, 26.3, 14.5…\n$ AST_per                           <dbl> 15.8, 13.6, 14.7, 13.7, 8.2, 40.8, 1…\n$ TO_per                            <dbl> 16.3, 19.8, 15.9, 23.8, 22.7, 0.0, 1…\n$ FTM                               <dbl> 10, 30, 45, 14, 64, 0, 94, 0, 76, 64…\n$ FTA                               <dbl> 14, 45, 67, 27, 114, 0, 143, 0, 109,…\n$ FT_per                            <dbl> 0.714, 0.667, 0.672, 0.519, 0.561, 0…\n$ twoPM                             <dbl> 26, 56, 67, 25, 93, 0, 138, 0, 82, 1…\n$ twoPA                             <dbl> 68, 113, 157, 63, 176, 0, 247, 0, 18…\n$ twoP_per                          <dbl> 0.382, 0.496, 0.427, 0.397, 0.528, 0…\n$ TPM                               <dbl> 13, 20, 50, 28, 0, 0, 14, 3, 25, 12,…\n$ TPA                               <dbl> 39, 51, 154, 62, 0, 0, 51, 5, 58, 55…\n$ TP_per                            <dbl> 0.333, 0.392, 0.325, 0.452, 0.000, 0…\n$ blk_per                           <dbl> 0.3, 1.0, 0.0, 0.8, 1.9, 0.0, 2.2, 0…\n$ stl_per                           <dbl> 1.5, 1.1, 0.9, 1.9, 1.3, 0.0, 3.0, 1…\n$ ftr                               <dbl> 13.1, 27.4, 21.5, 21.6, 64.8, 0.0, 4…\n$ yr                                <chr> \"So\", \"So\", \"Sr\", \"Sr\", \"Sr\", \"Jr\", …\n$ ht                                <chr> \"2-Jun\", \"4-Jun\", \"4-Jun\", \"4-Jun\", …\n$ num                               <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ porpag                            <dbl> 0.2580860, 1.3349200, 2.2740700, 0.5…\n$ adjoe                             <dbl> 89.39380, 100.06600, 104.10700, 93.2…\n$ pfr                               <dbl> 2.5, 3.4, 1.7, 2.0, 3.8, 4.4, 4.7, 1…\n$ year                              <dbl> 2009, 2009, 2009, 2009, 2009, 2009, …\n$ pid                               <dbl> 2, 3, 5, 8, 9, 11, 13, 15, 18, 20, 2…\n$ type                              <chr> \"all\", \"all\", \"all\", \"all\", \"all\", \"…\n$ `Rec Rank`                        <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ `ast/tov`                         <dbl> 1.8236463, 1.6316214, 1.0816619, 0.9…\n$ rimmade                           <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ `rimmade+rimmiss`                 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ midmade                           <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ `midmade+midmiss`                 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ `rimmade/(rimmade+rimmiss)`       <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ `midmade/(midmade+midmiss)`       <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ dunksmade                         <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ `dunksmiss+dunksmade`             <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ `dunksmade/(dunksmade+dunksmiss)` <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ pick                              <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ drtg                              <dbl> 108.3210, 105.0780, 107.5560, 108.85…\n$ adrtg                             <dbl> 108.5270, 104.0170, 102.1540, 106.55…\n$ dporpag                           <dbl> 0.8930170, 1.8800300, 2.7638700, 1.2…\n$ stops                             <dbl> 49.964400, 111.929000, 115.021000, 8…\n$ bpm                               <dbl> -4.9951400, 0.5930240, 0.0031609, -0…\n$ obpm                              <dbl> -1.623360, 1.385490, 1.024770, -0.50…\n$ dbpm                              <dbl> -3.3717800, -0.7924690, -1.0216100, …\n$ gbpm                              <dbl> -4.723150, -0.300196, 0.665065, -0.7…\n$ mp                                <dbl> 14.5769, 24.5294, 33.1852, 17.9667, …\n$ ogbpm                             <dbl> -2.7819900, -0.0522628, 1.5482300, -…\n$ dgbpm                             <dbl> -1.9411500, -0.2479340, -0.8831630, …\n$ oreb                              <dbl> 0.1923, 0.6765, 0.6296, 0.7000, 1.42…\n$ dreb                              <dbl> 0.6154, 1.2647, 2.3333, 1.4333, 3.30…\n$ treb                              <dbl> 0.8077, 1.9412, 2.9630, 2.1333, 4.72…\n$ ast                               <dbl> 1.1923, 1.8235, 1.9630, 1.1000, 0.84…\n$ stl                               <dbl> 0.3462, 0.4118, 0.4815, 0.5667, 0.45…\n$ blk                               <dbl> 0.0385, 0.2353, 0.0000, 0.1333, 0.33…\n$ pts                               <dbl> 3.8846, 5.9412, 12.1852, 4.9333, 7.5…\n$ ...65                             <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ ...66                             <dbl> 6.22026, 3.94375, 10.92680, 6.77427,…"
   },
   {
     "objectID": "proposal.html#introduction-and-data-1",
     "href": "proposal.html#introduction-and-data-1",
     "title": "Project title",
     "section": "Introduction and data",
-    "text": "Introduction and data\n\nIdentify the source of the data.\nState when and how it was originally collected (by the original data curator, not necessarily how you found the data).\nWrite a brief description of the observations."
+    "text": "Introduction and data\n\nIdentify the source of the data.\nThis is the Top Spotify hits from 2000-2019, top_spotify_songs, from Kaggle. https://www.kaggle.com/datasets/paradisejoy/top-hits-spotify-from-20002019\nState when and how it was originally collected (by the original data curator, not necessarily how you found the data).\nThe data was collected by Mark Koverha on Kaggle.\nWrite a brief description of the observations.\nThis data set has 2000 observations and 16 columns of unique data sets (non-identifiers)."
   },
   {
     "objectID": "proposal.html#research-question-1",
     "href": "proposal.html#research-question-1",
     "title": "Project title",
     "section": "Research question",
-    "text": "Research question\n\nA well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)\nA description of the research topic along with a concise statement of your hypotheses on this topic.\nIdentify the types of variables in your research question. Categorical? Quantitative?"
+    "text": "Research question\n\nA well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)\nDo the three most popular songs in any given year have the highest danceability ratings?\nA description of the research topic along with a concise statement of your hypotheses on this topic.\nThis research topic is on the correlation between popular songs being the most danceable, and any trends in this over time. For this, our hypothesis is that the higher the danceability rating is, the more popular the song is going to be.\nIdentify the types of variables in your research question. Categorical? Quantitative?\nThese variables in this research question are both quantitative and categorical, danceability and popularity are both quantitative for this set, and year is categorical."
   },
   {
     "objectID": "proposal.html#literature-1",
     "href": "proposal.html#literature-1",
     "title": "Project title",
     "section": "Literature",
-    "text": "Literature\n\nFind one published credible article on the topic you are interested in researching.\nProvide a one paragraph summary about the article.\nIn 1-2 sentences, explain how your research question builds on / is different than the article you have cited."
+    "text": "Literature\n\nFind one published credible article on the topic you are interested in researching.\nhttps://www.ncbi.nlm.nih.gov/pmc/articles/PMC5990848/\nProvide a one paragraph summary about the article.\nThis article discusses trends in the popularity of music, as using characteristics of the song. The analysis uses 12 binary variables, including danceability, and 6 categorical variables. The analysis was also two-parted, the first was to analyze trends in the data, then the second part sought to discover if it was possible to predict the success of songs. The data found that overall trends in happiness and brightness in the music decreased in popularity over time, while danceability and genres such as electronic increased in popularity. The researchers were not able to predict more than 74% of “successful” songs in a given year, indicating that while these trends were part of the success of a song, they did not account for all of them.\nIn 1-2 sentences, explain how your research question builds on / is different than the article you have cited.\nOur question is different because it focuses on this one variable, which is not binary in our data frame, and uses this to discover trends in popularity over time. As we have a more complex rating scale for our danceability and we are using popularity on Spotify charts rather than a success rating, we hope that our research will allow a more in-depth analysis of this trend than the previous research."
   },
   {
     "objectID": "proposal.html#glimpse-of-data-1",
     "href": "proposal.html#glimpse-of-data-1",
     "title": "Project title",
     "section": "Glimpse of data",
-    "text": "Glimpse of data\n\n# add code here"
+    "text": "Glimpse of data\n\nglimpse(top_spotify_songs)\n\nRows: 2,000\nColumns: 18\n$ artist           <chr> \"Britney Spears\", \"blink-182\", \"Faith Hill\", \"Bon Jov…\n$ song             <chr> \"Oops!...I Did It Again\", \"All The Small Things\", \"Br…\n$ duration_ms      <dbl> 211160, 167066, 250546, 224493, 200560, 253733, 28420…\n$ explicit         <lgl> FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE,…\n$ year             <dbl> 2000, 1999, 1999, 2000, 2000, 1999, 2000, 2000, 1999,…\n$ popularity       <dbl> 77, 79, 66, 78, 65, 69, 86, 68, 75, 77, 1, 56, 55, 62…\n$ danceability     <dbl> 0.751, 0.434, 0.529, 0.551, 0.614, 0.706, 0.949, 0.70…\n$ energy           <dbl> 0.834, 0.897, 0.496, 0.913, 0.928, 0.888, 0.661, 0.77…\n$ key              <dbl> 1, 0, 7, 0, 8, 2, 5, 7, 5, 6, 7, 7, 11, 0, 3, 6, 10, …\n$ loudness         <dbl> -5.444, -4.918, -9.007, -4.063, -4.806, -6.959, -4.24…\n$ mode             <dbl> 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0,…\n$ speechiness      <dbl> 0.0437, 0.0488, 0.0290, 0.0466, 0.0516, 0.0654, 0.057…\n$ acousticness     <dbl> 0.30000, 0.01030, 0.17300, 0.02630, 0.04080, 0.11900,…\n$ instrumentalness <dbl> 1.77e-05, 0.00e+00, 0.00e+00, 1.35e-05, 1.04e-03, 9.6…\n$ liveness         <dbl> 0.3550, 0.6120, 0.2510, 0.3470, 0.0845, 0.0700, 0.045…\n$ valence          <dbl> 0.8940, 0.6840, 0.2780, 0.5440, 0.8790, 0.7140, 0.760…\n$ tempo            <dbl> 95.053, 148.726, 136.859, 119.992, 172.656, 121.549, …\n$ genre            <chr> \"pop\", \"rock, pop\", \"pop, country\", \"rock, metal\", \"p…"
   },
   {
     "objectID": "proposal.html#introduction-and-data-2",
     "href": "proposal.html#introduction-and-data-2",
     "title": "Project title",
     "section": "Introduction and data",
-    "text": "Introduction and data\n\nIdentify the source of the data.\nState when and how it was originally collected (by the original data curator, not necessarily how you found the data).\nWrite a brief description of the observations."
+    "text": "Introduction and data\n\nIdentify the source of the data.\n\nhttps://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results\n\nState when and how it was originally collected (by the original data curator, not necessarily how you found the data).\n\nData was scraped and wrangled using r off of www.sports-reference.com by Randi H. Griffin.\n\nWrite a brief description of the observations.\n\nThere are 15 columns and 271,116 rows. Each row repesents a different olympic athlete throughout the history of the olympics, while each column represents a different variable about that athlete, like year, country, medal, etc."
   },
   {
     "objectID": "proposal.html#research-question-2",
     "href": "proposal.html#research-question-2",
     "title": "Project title",
     "section": "Research question",
-    "text": "Research question\n\nA well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)\nA description of the research topic along with a concise statement of your hypotheses on this topic.\nIdentify the types of variables in your research question. Categorical? Quantitative?"
+    "text": "Research question\n\nA well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)\n\nHow do factors like age, height, and weight correlate with medal success rate across the different sports?\n\nA description of the research topic along with a concise statement of your hypotheses on this topic.\n\nFor this research topic, we would have to take a look at which ages, heights, and weights have received medals. I would hypothesize that for each separate sport, there is a different normal distribution for ages, heights, and weights that have medal success rates, with an ideal age, height, and weight for each individual sport.\n\nIdentify the types of variables in your research question. Categorical? Quantitative?\n\nMy research question would involve the age (quantitative), height (quantitative), weight (quantitative), sport (categorical), and medal (categorical).\nLiterature\n\nFind one published credible article on the topic you are interested in researching.\n\nhttps://slate.com/culture/2016/08/why-female-gymnasts-are-so-short.html\n\nProvide a one paragraph summary about the article.\n\nThis article talks about the fact that the average height of Olympic female gymnasts have been getting shorter. 30 years ago, they were about 5 foot 3, but today they average out at about 4 foot 9. This is due to the fact of the advantage in gymnastics of being short. With a lower center of inertia, a higher power-weight ratio, and an easier time rotating in the air, it makes sense that gymnasts are better off smaller. The article finishes off by questioning if the average height will continue to decrease.\n\nIn 1-2 sentences, explain how your research question builds on / is different than the article you have cited.\n\nThis talks about the average height for womens gymnastics. Our research question is different because we will be looking at which heights have the higher medal success rate, not just which heights exist in the olympics. Hopefully, by taking into account the earned medals, we will depict an even more accurate understanding of which heights are most likely to succeed."
   },
   {
     "objectID": "proposal.html#literature-2",
@@ -102,13 +102,27 @@
     "href": "proposal.html#glimpse-of-data-2",
     "title": "Project title",
     "section": "Glimpse of data",
-    "text": "Glimpse of data\n\n# add code here"
+    "text": "Glimpse of data\n\nglimpse(olympic_data)\n\nRows: 271,116\nColumns: 15\n$ ID     <dbl> 1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, …\n$ Name   <chr> \"A Dijiang\", \"A Lamusi\", \"Gunnar Nielsen Aaby\", \"Edgar Lindenau…\n$ Sex    <chr> \"M\", \"M\", \"M\", \"M\", \"F\", \"F\", \"F\", \"F\", \"F\", \"F\", \"M\", \"M\", \"M\"…\n$ Age    <dbl> 24, 23, 24, 34, 21, 21, 25, 25, 27, 27, 31, 31, 31, 31, 33, 33,…\n$ Height <dbl> 180, 170, NA, NA, 185, 185, 185, 185, 185, 185, 188, 188, 188, …\n$ Weight <dbl> 80, 60, NA, NA, 82, 82, 82, 82, 82, 82, 75, 75, 75, 75, 75, 75,…\n$ Team   <chr> \"China\", \"China\", \"Denmark\", \"Denmark/Sweden\", \"Netherlands\", \"…\n$ NOC    <chr> \"CHN\", \"CHN\", \"DEN\", \"DEN\", \"NED\", \"NED\", \"NED\", \"NED\", \"NED\", …\n$ Games  <chr> \"1992 Summer\", \"2012 Summer\", \"1920 Summer\", \"1900 Summer\", \"19…\n$ Year   <dbl> 1992, 2012, 1920, 1900, 1988, 1988, 1992, 1992, 1994, 1994, 199…\n$ Season <chr> \"Summer\", \"Summer\", \"Summer\", \"Summer\", \"Winter\", \"Winter\", \"Wi…\n$ City   <chr> \"Barcelona\", \"London\", \"Antwerpen\", \"Paris\", \"Calgary\", \"Calgar…\n$ Sport  <chr> \"Basketball\", \"Judo\", \"Football\", \"Tug-Of-War\", \"Speed Skating\"…\n$ Event  <chr> \"Basketball Men's Basketball\", \"Judo Men's Extra-Lightweight\", …\n$ Medal  <chr> NA, NA, NA, \"Gold\", NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…"
   },
   {
     "objectID": "report.html",
     "href": "report.html",
     "title": "Project title",
     "section": "",
-    "text": "Add project writeup here."
+    "text": "describe your topic (citing sources)\nprovide a concise, clear statement of your research question and hypotheses\nconsider any potential ethical issues that you believe should be addressed (if any) regarding how your data were collected\nidentify the source of the data\nwhen and how it was collected\nthe cases\na general description of relevant variables"
+  },
+  {
+    "objectID": "report.html#methodology",
+    "href": "report.html#methodology",
+    "title": "Project title",
+    "section": "METHODOLOGY",
+    "text": "METHODOLOGY\nvisualizations and summary statistics relevant to your research question\njustify the choice of statistical method(s) used to answer your research question"
+  },
+  {
+    "objectID": "report.html#results",
+    "href": "report.html#results",
+    "title": "Project title",
+    "section": "RESULTS",
+    "text": "RESULTS\nshowcase how you arrived at answers to your research question using the techniques we have learned in class\nprovide only the main results from your analysis\ndemonstrate that you are proficient at asking meaningful questions and answering them using data\nthat you are skilled in interpreting and presenting results\nand that you can accomplish these tasks using R"
   }
 ]

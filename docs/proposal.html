@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -53,7 +58,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -66,7 +71,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -157,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -179,7 +184,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#introduction-and-data-2" id="toc-introduction-and-data-2" class="nav-link" data-scroll-target="#introduction-and-data-2">Introduction and data</a></li>
   <li><a href="#research-question-2" id="toc-research-question-2" class="nav-link" data-scroll-target="#research-question-2">Research question</a></li>
-  <li><a href="#literature-2" id="toc-literature-2" class="nav-link" data-scroll-target="#literature-2">Literature</a></li>
   <li><a href="#glimpse-of-data-2" id="toc-glimpse-of-data-2" class="nav-link" data-scroll-target="#glimpse-of-data-2">Glimpse of data</a></li>
   </ul></li>
   </ul>
@@ -206,50 +210,130 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyr' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'readr' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'purrr' was built under R version 4.2.2</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>CollegeBasketballPlayers2009_2021 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"CollegeBasketballPlayers2009-2021.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>top_spotify_songs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"songs_normalize 3.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>olympic_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"athlete_events.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="data-1" class="level1">
 <h1>Data 1</h1>
 <section id="introduction-and-data" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-and-data">Introduction and data</h2>
 <ul>
-<li><p>Identify the source of the data.</p></li>
-<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p></li>
-<li><p>Write a brief description of the observations.</p></li>
+<li><p>Identify the source of the data.</p>
+<p>The College Basketball Players 2009-2021 dataset is from Kaggle (https://www.kaggle.com/datasets/adityak2003/college-basketball-players-20092021)</p></li>
+<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p>
+<p>The data was collected by Bart Torvik (barttorvik.com)</p></li>
+<li><p>Write a brief description of the observations.</p>
+<p>The observations give 65 variables related to college basketball for college basketball players from 2009-2021. Each of the 61,000 observations is one season by one player.</p></li>
 </ul>
 </section>
 <section id="research-question" class="level2">
 <h2 class="anchored" data-anchor-id="research-question">Research question</h2>
 <ul>
 <li>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</li>
+</ul>
+<p>How do various college basketball playing statistics influence players’ NBA draft pick? Which statistic (efficiency rating, total points, shooting percentage, etc) is the best predictor of being a #1 or top 10 pick in the NBA draft?</p>
+<ul>
 <li>A description of the research topic along with a concise statement of your hypotheses on this topic.</li>
+</ul>
+<p>The research topic is performance statistics of players in college basketball and the potential association with draft picks. We hypothesize that efficiency rating will be the best predictor of draft pick with a higher efficiency rating predicting a lower numerical draft pick. Performance statistics to be considered were chosen based on general basketball knowledge and will be tested using linear regression models.</p>
+<ul>
 <li>Identify the types of variables in your research question. Categorical? Quantitative?</li>
 </ul>
+<p>The majority of the variables are quantitative such as average or total points, steals, blocks, etc but there are also some categorical variables, such as year in school, team, and conference. For the response variable ‘pick’, observations with ’NA’s will be removed from the data set.</p>
 </section>
 <section id="literature" class="level2">
 <h2 class="anchored" data-anchor-id="literature">Literature</h2>
 <ul>
-<li><p>Find one published credible article on the topic you are interested in researching.</p></li>
-<li><p>Provide a one paragraph summary about the article.</p></li>
-<li><p>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</p></li>
+<li>Find one published credible article on the topic you are interested in researching.</li>
 </ul>
+<p>https://www.playingnumbers.com/2020/03/using-ncaa-stats-to-predict-nba-draft-order/</p>
+<ul>
+<li>Provide a one paragraph summary about the article.</li>
+</ul>
+<p>This article discussed two potential models which were created in attempts to predict draft order based on college statistics. One of the models included data for the players from only that season before the draft in question, while the other model included data of every season the player played in college before entering the draft. One strong predictor these models found was age, with freshman predicted and actually drafted higher on average and players drafted lower each subsequent year. However, one problem the article mentions in using college statistics to predict NBA draft picks is that because many prospects are drafted based on potential, there were often freshman with worse statistics that were drafted higher because NBA teams may have believed they had underdeveloped talent, as opposed to players with better statistics who the NBA teams may have viewed as having already reached their peak ability.</p>
+<ul>
+<li>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</li>
+</ul>
+<p>Our research question is different than the article because it includes many more extensive variables than mentioned in the article, such as breaking down shots by dunks, rim shots, and midrange shots, along with categorizations such as conference which may influence players’ success, so we will be able to look for more potential specific trends based on the numerous variables available.</p>
 </section>
 <section id="glimpse-of-data" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data">Glimpse of data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(CollegeBasketballPlayers2009_2021)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 61,061
+Columns: 66
+$ player_name                       &lt;chr&gt; "DeAndrae Ross", "Pooh Williams", "J…
+$ team                              &lt;chr&gt; "South Alabama", "Utah St.", "South …
+$ conf                              &lt;chr&gt; "SB", "WAC", "BE", "WCC", "BW", "Hor…
+$ GP                                &lt;dbl&gt; 26, 34, 27, 30, 33, 6, 27, 19, 30, 3…
+$ Min_per                           &lt;dbl&gt; 29.5, 60.9, 72.0, 44.5, 56.2, 0.7, 7…
+$ Ortg                              &lt;dbl&gt; 97.3, 108.3, 96.2, 97.7, 96.5, 0.0, …
+$ usg                               &lt;dbl&gt; 16.6, 14.9, 21.8, 16.0, 22.0, 0.0, 2…
+$ eFG                               &lt;dbl&gt; 42.5, 52.4, 45.7, 53.6, 52.8, 0.0, 5…
+$ TS_per                            &lt;dbl&gt; 44.43, 54.48, 47.98, 53.69, 54.31, 0…
+$ ORB_per                           &lt;dbl&gt; 1.6, 3.8, 2.1, 4.1, 8.3, 0.0, 6.8, 2…
+$ DRB_per                           &lt;dbl&gt; 4.6, 6.3, 8.0, 9.4, 18.6, 26.3, 14.5…
+$ AST_per                           &lt;dbl&gt; 15.8, 13.6, 14.7, 13.7, 8.2, 40.8, 1…
+$ TO_per                            &lt;dbl&gt; 16.3, 19.8, 15.9, 23.8, 22.7, 0.0, 1…
+$ FTM                               &lt;dbl&gt; 10, 30, 45, 14, 64, 0, 94, 0, 76, 64…
+$ FTA                               &lt;dbl&gt; 14, 45, 67, 27, 114, 0, 143, 0, 109,…
+$ FT_per                            &lt;dbl&gt; 0.714, 0.667, 0.672, 0.519, 0.561, 0…
+$ twoPM                             &lt;dbl&gt; 26, 56, 67, 25, 93, 0, 138, 0, 82, 1…
+$ twoPA                             &lt;dbl&gt; 68, 113, 157, 63, 176, 0, 247, 0, 18…
+$ twoP_per                          &lt;dbl&gt; 0.382, 0.496, 0.427, 0.397, 0.528, 0…
+$ TPM                               &lt;dbl&gt; 13, 20, 50, 28, 0, 0, 14, 3, 25, 12,…
+$ TPA                               &lt;dbl&gt; 39, 51, 154, 62, 0, 0, 51, 5, 58, 55…
+$ TP_per                            &lt;dbl&gt; 0.333, 0.392, 0.325, 0.452, 0.000, 0…
+$ blk_per                           &lt;dbl&gt; 0.3, 1.0, 0.0, 0.8, 1.9, 0.0, 2.2, 0…
+$ stl_per                           &lt;dbl&gt; 1.5, 1.1, 0.9, 1.9, 1.3, 0.0, 3.0, 1…
+$ ftr                               &lt;dbl&gt; 13.1, 27.4, 21.5, 21.6, 64.8, 0.0, 4…
+$ yr                                &lt;chr&gt; "So", "So", "Sr", "Sr", "Sr", "Jr", …
+$ ht                                &lt;chr&gt; "2-Jun", "4-Jun", "4-Jun", "4-Jun", …
+$ num                               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ porpag                            &lt;dbl&gt; 0.2580860, 1.3349200, 2.2740700, 0.5…
+$ adjoe                             &lt;dbl&gt; 89.39380, 100.06600, 104.10700, 93.2…
+$ pfr                               &lt;dbl&gt; 2.5, 3.4, 1.7, 2.0, 3.8, 4.4, 4.7, 1…
+$ year                              &lt;dbl&gt; 2009, 2009, 2009, 2009, 2009, 2009, …
+$ pid                               &lt;dbl&gt; 2, 3, 5, 8, 9, 11, 13, 15, 18, 20, 2…
+$ type                              &lt;chr&gt; "all", "all", "all", "all", "all", "…
+$ `Rec Rank`                        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ `ast/tov`                         &lt;dbl&gt; 1.8236463, 1.6316214, 1.0816619, 0.9…
+$ rimmade                           &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ `rimmade+rimmiss`                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ midmade                           &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ `midmade+midmiss`                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ `rimmade/(rimmade+rimmiss)`       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ `midmade/(midmade+midmiss)`       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ dunksmade                         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ `dunksmiss+dunksmade`             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ `dunksmade/(dunksmade+dunksmiss)` &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ pick                              &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ drtg                              &lt;dbl&gt; 108.3210, 105.0780, 107.5560, 108.85…
+$ adrtg                             &lt;dbl&gt; 108.5270, 104.0170, 102.1540, 106.55…
+$ dporpag                           &lt;dbl&gt; 0.8930170, 1.8800300, 2.7638700, 1.2…
+$ stops                             &lt;dbl&gt; 49.964400, 111.929000, 115.021000, 8…
+$ bpm                               &lt;dbl&gt; -4.9951400, 0.5930240, 0.0031609, -0…
+$ obpm                              &lt;dbl&gt; -1.623360, 1.385490, 1.024770, -0.50…
+$ dbpm                              &lt;dbl&gt; -3.3717800, -0.7924690, -1.0216100, …
+$ gbpm                              &lt;dbl&gt; -4.723150, -0.300196, 0.665065, -0.7…
+$ mp                                &lt;dbl&gt; 14.5769, 24.5294, 33.1852, 17.9667, …
+$ ogbpm                             &lt;dbl&gt; -2.7819900, -0.0522628, 1.5482300, -…
+$ dgbpm                             &lt;dbl&gt; -1.9411500, -0.2479340, -0.8831630, …
+$ oreb                              &lt;dbl&gt; 0.1923, 0.6765, 0.6296, 0.7000, 1.42…
+$ dreb                              &lt;dbl&gt; 0.6154, 1.2647, 2.3333, 1.4333, 3.30…
+$ treb                              &lt;dbl&gt; 0.8077, 1.9412, 2.9630, 2.1333, 4.72…
+$ ast                               &lt;dbl&gt; 1.1923, 1.8235, 1.9630, 1.1000, 0.84…
+$ stl                               &lt;dbl&gt; 0.3462, 0.4118, 0.4815, 0.5667, 0.45…
+$ blk                               &lt;dbl&gt; 0.0385, 0.2353, 0.0000, 0.1333, 0.33…
+$ pts                               &lt;dbl&gt; 3.8846, 5.9412, 12.1852, 4.9333, 7.5…
+$ ...65                             &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ ...66                             &lt;dbl&gt; 6.22026, 3.94375, 10.92680, 6.77427,…</code></pre>
+</div>
 </div>
 </section>
 </section>
@@ -258,31 +342,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="introduction-and-data-1" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-and-data-1">Introduction and data</h2>
 <ul>
-<li><p>Identify the source of the data.</p></li>
-<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p></li>
-<li><p>Write a brief description of the observations.</p></li>
+<li><p>Identify the source of the data.</p>
+<p>This is the Top Spotify hits from 2000-2019, top_spotify_songs, from Kaggle. https://www.kaggle.com/datasets/paradisejoy/top-hits-spotify-from-20002019</p></li>
+<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p>
+<p>The data was collected by Mark Koverha on Kaggle.</p></li>
+<li><p>Write a brief description of the observations.</p>
+<p>This data set has 2000 observations and 16 columns of unique data sets (non-identifiers).</p></li>
 </ul>
 </section>
 <section id="research-question-1" class="level2">
 <h2 class="anchored" data-anchor-id="research-question-1">Research question</h2>
 <ul>
-<li>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</li>
-<li>A description of the research topic along with a concise statement of your hypotheses on this topic.</li>
-<li>Identify the types of variables in your research question. Categorical? Quantitative?</li>
+<li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p>
+<p>Do the three most popular songs in any given year have the highest danceability ratings?</p></li>
+<li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p>
+<p>This research topic is on the correlation between popular songs being the most danceable, and any trends in this over time. For this, our hypothesis is that the higher the danceability rating is, the more popular the song is going to be.</p></li>
+<li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p>
+<p>These variables in this research question are both quantitative and categorical, danceability and popularity are both quantitative for this set, and year is categorical.</p></li>
 </ul>
 </section>
 <section id="literature-1" class="level2">
 <h2 class="anchored" data-anchor-id="literature-1">Literature</h2>
 <ul>
-<li><p>Find one published credible article on the topic you are interested in researching.</p></li>
-<li><p>Provide a one paragraph summary about the article.</p></li>
-<li><p>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</p></li>
+<li><p>Find one published credible article on the topic you are interested in researching.</p>
+<p>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5990848/</p></li>
+<li><p>Provide a one paragraph summary about the article.</p>
+<p>This article discusses trends in the popularity of music, as using characteristics of the song. The analysis uses 12 binary variables, including danceability, and 6 categorical variables. The analysis was also two-parted, the first was to analyze trends in the data, then the second part sought to discover if it was possible to predict the success of songs. The data found that overall trends in happiness and brightness in the music decreased in popularity over time, while danceability and genres such as electronic increased in popularity. The researchers were not able to predict more than 74% of “successful” songs in a given year, indicating that while these trends were part of the success of a song, they did not account for all of them.</p></li>
+<li><p>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</p>
+<p>Our question is different because it focuses on this one variable, which is not binary in our data frame, and uses this to discover trends in popularity over time. As we have a more complex rating scale for our danceability and we are using popularity on Spotify charts rather than a success rating, we hope that our research will allow a more in-depth analysis of this trend than the previous research.</p></li>
 </ul>
 </section>
 <section id="glimpse-of-data-1" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data-1">Glimpse of data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(top_spotify_songs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 2,000
+Columns: 18
+$ artist           &lt;chr&gt; "Britney Spears", "blink-182", "Faith Hill", "Bon Jov…
+$ song             &lt;chr&gt; "Oops!...I Did It Again", "All The Small Things", "Br…
+$ duration_ms      &lt;dbl&gt; 211160, 167066, 250546, 224493, 200560, 253733, 28420…
+$ explicit         &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE,…
+$ year             &lt;dbl&gt; 2000, 1999, 1999, 2000, 2000, 1999, 2000, 2000, 1999,…
+$ popularity       &lt;dbl&gt; 77, 79, 66, 78, 65, 69, 86, 68, 75, 77, 1, 56, 55, 62…
+$ danceability     &lt;dbl&gt; 0.751, 0.434, 0.529, 0.551, 0.614, 0.706, 0.949, 0.70…
+$ energy           &lt;dbl&gt; 0.834, 0.897, 0.496, 0.913, 0.928, 0.888, 0.661, 0.77…
+$ key              &lt;dbl&gt; 1, 0, 7, 0, 8, 2, 5, 7, 5, 6, 7, 7, 11, 0, 3, 6, 10, …
+$ loudness         &lt;dbl&gt; -5.444, -4.918, -9.007, -4.063, -4.806, -6.959, -4.24…
+$ mode             &lt;dbl&gt; 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0,…
+$ speechiness      &lt;dbl&gt; 0.0437, 0.0488, 0.0290, 0.0466, 0.0516, 0.0654, 0.057…
+$ acousticness     &lt;dbl&gt; 0.30000, 0.01030, 0.17300, 0.02630, 0.04080, 0.11900,…
+$ instrumentalness &lt;dbl&gt; 1.77e-05, 0.00e+00, 0.00e+00, 1.35e-05, 1.04e-03, 9.6…
+$ liveness         &lt;dbl&gt; 0.3550, 0.6120, 0.2510, 0.3470, 0.0845, 0.0700, 0.045…
+$ valence          &lt;dbl&gt; 0.8940, 0.6840, 0.2780, 0.5440, 0.8790, 0.7140, 0.760…
+$ tempo            &lt;dbl&gt; 95.053, 148.726, 136.859, 119.992, 172.656, 121.549, …
+$ genre            &lt;chr&gt; "pop", "rock, pop", "pop, country", "rock, metal", "p…</code></pre>
+</div>
 </div>
 </section>
 </section>
@@ -291,31 +406,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="introduction-and-data-2" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-and-data-2">Introduction and data</h2>
 <ul>
-<li><p>Identify the source of the data.</p></li>
-<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p></li>
-<li><p>Write a brief description of the observations.</p></li>
+<li>Identify the source of the data.</li>
 </ul>
+<p>https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results</p>
+<ul>
+<li>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</li>
+</ul>
+<p>Data was scraped and wrangled using r off of www.sports-reference.com by Randi H. Griffin.</p>
+<ul>
+<li>Write a brief description of the observations.</li>
+</ul>
+<p>There are 15 columns and 271,116 rows. Each row repesents a different olympic athlete throughout the history of the olympics, while each column represents a different variable about that athlete, like year, country, medal, etc.</p>
 </section>
 <section id="research-question-2" class="level2">
 <h2 class="anchored" data-anchor-id="research-question-2">Research question</h2>
 <ul>
 <li>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</li>
+</ul>
+<p>How do factors like age, height, and weight correlate with medal success rate across the different sports?</p>
+<ul>
 <li>A description of the research topic along with a concise statement of your hypotheses on this topic.</li>
+</ul>
+<p>For this research topic, we would have to take a look at which ages, heights, and weights have received medals. I would hypothesize that for each separate sport, there is a different normal distribution for ages, heights, and weights that have medal success rates, with an ideal age, height, and weight for each individual sport.</p>
+<ul>
 <li>Identify the types of variables in your research question. Categorical? Quantitative?</li>
 </ul>
-</section>
-<section id="literature-2" class="level2">
-<h2 class="anchored" data-anchor-id="literature-2">Literature</h2>
+<p>My research question would involve the age (quantitative), height (quantitative), weight (quantitative), sport (categorical), and medal (categorical).</p>
+<p>Literature</p>
 <ul>
-<li><p>Find one published credible article on the topic you are interested in researching.</p></li>
-<li><p>Provide a one paragraph summary about the article.</p></li>
-<li><p>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</p></li>
+<li>Find one published credible article on the topic you are interested in researching.</li>
 </ul>
+<p>https://slate.com/culture/2016/08/why-female-gymnasts-are-so-short.html</p>
+<ul>
+<li>Provide a one paragraph summary about the article.</li>
+</ul>
+<p>This article talks about the fact that the average height of Olympic female gymnasts have been getting shorter. 30 years ago, they were about 5 foot 3, but today they average out at about 4 foot 9. This is due to the fact of the advantage in gymnastics of being short. With a lower center of inertia, a higher power-weight ratio, and an easier time rotating in the air, it makes sense that gymnasts are better off smaller. The article finishes off by questioning if the average height will continue to decrease.</p>
+<ul>
+<li>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</li>
+</ul>
+<p>This talks about the average height for womens gymnastics. Our research question is different because we will be looking at which heights have the higher medal success rate, not just which heights exist in the olympics. Hopefully, by taking into account the earned medals, we will depict an even more accurate understanding of which heights are most likely to succeed.</p>
 </section>
 <section id="glimpse-of-data-2" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data-2">Glimpse of data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(olympic_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 271,116
+Columns: 15
+$ ID     &lt;dbl&gt; 1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, …
+$ Name   &lt;chr&gt; "A Dijiang", "A Lamusi", "Gunnar Nielsen Aaby", "Edgar Lindenau…
+$ Sex    &lt;chr&gt; "M", "M", "M", "M", "F", "F", "F", "F", "F", "F", "M", "M", "M"…
+$ Age    &lt;dbl&gt; 24, 23, 24, 34, 21, 21, 25, 25, 27, 27, 31, 31, 31, 31, 33, 33,…
+$ Height &lt;dbl&gt; 180, 170, NA, NA, 185, 185, 185, 185, 185, 185, 188, 188, 188, …
+$ Weight &lt;dbl&gt; 80, 60, NA, NA, 82, 82, 82, 82, 82, 82, 75, 75, 75, 75, 75, 75,…
+$ Team   &lt;chr&gt; "China", "China", "Denmark", "Denmark/Sweden", "Netherlands", "…
+$ NOC    &lt;chr&gt; "CHN", "CHN", "DEN", "DEN", "NED", "NED", "NED", "NED", "NED", …
+$ Games  &lt;chr&gt; "1992 Summer", "2012 Summer", "1920 Summer", "1900 Summer", "19…
+$ Year   &lt;dbl&gt; 1992, 2012, 1920, 1900, 1988, 1988, 1992, 1992, 1994, 1994, 199…
+$ Season &lt;chr&gt; "Summer", "Summer", "Summer", "Summer", "Winter", "Winter", "Wi…
+$ City   &lt;chr&gt; "Barcelona", "London", "Antwerpen", "Paris", "Calgary", "Calgar…
+$ Sport  &lt;chr&gt; "Basketball", "Judo", "Football", "Tug-Of-War", "Speed Skating"…
+$ Event  &lt;chr&gt; "Basketball Men's Basketball", "Judo Men's Extra-Lightweight", …
+$ Medal  &lt;chr&gt; NA, NA, NA, "Gold", NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</code></pre>
+</div>
 </div>
 
 
@@ -392,7 +545,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
