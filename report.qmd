@@ -8,9 +8,12 @@ execute:
 ---
 
 ```{r}
-library(tidyverse)
+#| label: packages
+#| message: false
+#| warning: false
 
-olympic_data <- read_csv("athlete_events.csv")
+library(tidyverse)
+library(tidymodels)
 ```
 
 ## INTRODUCTION
@@ -23,26 +26,17 @@ To answer this research question, we will use the relevant variables of age, hei
 
 We found this data set online at Kaggle, but the original data was from www.sports-reference.com. It was researched by a group of Olympic history enthusiasts and compiled into the data set format using R by Randi H. Griffin. The data was uploaded to the Kaggle website in 2018.
 
-Using this data set, there are minimal to no ethical concerns, as this data was collected from a publicly accessible site. Additionally, all of this data was able be compiled by anyone, as Olympic athletes and their medals are also public information. We did not interview or collect any information ourselves, and their is no private health information or other private information available in this data.  As such, there are no risks to the participants in our data collection and use of this data. 
+Using this data set, there are minimal to no ethical concerns, as this data was collected from a publicly accessible site. Additionally, all of this data was able be compiled by anyone, as Olympic athletes and their medals are also public information. We did not interview or collect any information ourselves, and their is no private health information or other private information available in this data. As such, there are no risks to the participants in our data collection and use of this data.
 
-Each case in this data set corresponds to an individual athlete competing in an individual Olympic event between the years of 1896 and 2016. While we are only using the variables described above, this data set also includes team, year, games, city, and event for each case. 
+Each case in this data set corresponds to an individual athlete competing in an individual Olympic event between the years of 1896 and 2016. While we are only using the variables described above, this data set also includes team, year, games, city, and event for each case.
 
-For this research topic, we will have to view which ages, heights, and weights have received medals. I would hypothesize that for each separate sport, there is a different normal distribution for ages, heights, and weights that have medal success rates, showing an ideal age, height, and weight for each sport we visualize. 
+For this research topic, we will have to view which ages, heights, and weights have received medals. I would hypothesize that for each separate sport, there is a different normal distribution for ages, heights, and weights that have medal success rates, showing an ideal age, height, and weight for each sport we visualize.
 
 # METHODOLOGY
 
 visualizations and summary statistics relevant to your research question
 
 justify the choice of statistical method(s) used to answer your research question
-
-```{r}
-#| label: packages
-#| message: false
-#| warning: false
-
-library(tidyverse)
-library(tidymodels)
-```
 
 ```{r}
 #| label: data
@@ -71,7 +65,7 @@ data <- olympic_data |>
                             Medal == "Bronze" ~ 1,
                             is.na(Medal) ~ 0)) 
 
-
+data
 
 ```
 
