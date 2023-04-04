@@ -84,6 +84,18 @@ data |>
 ```
 
 Repeat but filter out non-medalists
+```{r}
+#| label: only-medalists
+
+data |>
+  filter(!is.na(Medal)) |>
+  ggplot(
+    aes(x = Height, y = Weight, color = Category)
+  ) +
+  geom_point(alpha = 0.75, size = 0.5) +
+  labs(x = "Height(cm)", y = "Weight(kg)", color = "Sport", title = "Height and weight of Olympic medalists \nby sport and gender")
+
+```
 
 facet wrap by category, filter out non medalists, color by medal (fun hex codes!)
 
