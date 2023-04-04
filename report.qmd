@@ -76,7 +76,8 @@ data |>
   ggplot(
     aes(x = Height, y = Weight, color = Category)
   ) +
-  geom_point()
+  geom_point(alpha = 0.75, size = 0.5) +
+  labs(x = "Height(cm)", y = "Weight(kg)", color = "Sport", title = "Height and weight of Olympic athletes \nby sport and gender")
 ```
 
 # RESULTS
