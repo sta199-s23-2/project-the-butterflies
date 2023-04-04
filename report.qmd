@@ -61,10 +61,11 @@ data <- olympic_data |>
   filter(!is.na(Age)) |>
   filter(!is.na(Height)) |>
   filter(!is.na(Weight)) |>
-  mutate(Category = case_when(Sex == "F" & Sport == "Gymnastics" ~ "Female Gymnastics",
-                        Sex == "F" & Sport == "Swimming" ~ "Female Swimming",
-                        Sex == "M" & Sport == "Gymnastics" ~ "Male Gymnastics",
-                        Sex == "M" & Sport == "Swimming" ~ "Male Swimming")) |>
+  mutate(Category = case_when(
+    Sex == "F" & Sport == "Gymnastics" ~ "Female Gymnastics",
+    Sex == "F" & Sport == "Swimming" ~ "Female Swimming",
+    Sex == "M" & Sport == "Gymnastics" ~ "Male Gymnastics",
+    Sex == "M" & Sport == "Swimming" ~ "Male Swimming")) |>
   mutate(Points = case_when(Medal == "Gold" ~ 3,
                             Medal == "Silver" ~ 2,
                             Medal == "Bronze" ~ 1,
