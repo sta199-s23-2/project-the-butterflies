@@ -83,6 +83,12 @@ data |>
 
 ```
 
+Repeat but filter out non-medalists
+
+facet wrap by category, filter out non medalists, color by medal (fun hex codes!)
+
+
+
 # RESULTS
 
 1.  select only the parts of the data set we need (filter by sports)
@@ -90,6 +96,11 @@ data |>
 3.  visualize the height and weight and whether or not they received a medal
 4.  then separate by gender and see if it changes
 
+**NOTE - maybe mutate variable to create height categories?**
+
+*Could also try creating confidence intervals surrounding mean heights in each sport? Not sure but an idea*
+
+*Could also do age categories?*
 ```{r}
 
 
