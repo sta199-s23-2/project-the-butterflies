@@ -116,6 +116,7 @@ data |>
 ```
 
 
+
 # RESULTS
 
 1.  select only the parts of the data set we need (filter by sports)
@@ -128,6 +129,29 @@ data |>
 *Could also try creating confidence intervals surrounding mean heights in each sport? Not sure but an idea*
 
 *Could also do age categories?*
+
+```{r}
+#| label: age-category-info
+
+data |>
+  filter(!is.na(Age)) |>
+  slice_max(Age)
+
+data |>
+  filter(!is.na(Age)) |>
+  slice_min(Age)
+```
+
+```{r}
+#| label: age-categories
+#what do yall think of the categories...?? Struggled w names a bit
+data |>
+  mutate(Age_Category = if_else(Age < 13, "Adolescent",
+         if_else(Age < 18, "Teenager", 
+         if_else(Age < 26, "Young Adult", "Later Adult"))))
+```
+
+
 ```{r}
 
 
