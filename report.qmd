@@ -99,6 +99,21 @@ data |>
 
 facet wrap by category, filter out non medalists, color by medal (fun hex codes!)
 
+```{r}
+data |>
+  filter(!is.na(Medal)) |>
+  ggplot(
+    aes(x = Height, y = Weight, color = Medal)) +
+  facet_wrap(vars(Category)) +
+  geom_point(alpha = 0.5, size = 0.75) +
+  scale_color_manual(
+    values = c("Gold" = "#FFD700",
+               "Silver" = "#C0C0C0",
+               "Bronze" = "#CD7F32")) +
+  labs(x = "Height(cm)", y = "Weight(kg)", color = "Medal")
+
+
+```
 
 
 # RESULTS
