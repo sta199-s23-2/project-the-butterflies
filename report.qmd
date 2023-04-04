@@ -79,6 +79,15 @@ data |>
   geom_point()
 ```
 
+```{r}
+data |>
+  filter(Points > 0) |>
+  ggplot(
+    aes(x = Height, y = Weight, color = Category)
+  ) +
+  geom_point()
+```
+
 # RESULTS
 
 1.  select only the parts of the data set we need (filter by sports)
