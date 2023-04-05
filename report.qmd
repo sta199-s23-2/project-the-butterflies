@@ -84,6 +84,7 @@ data |>
 ```
 
 Repeat but filter out non-medalists
+
 ```{r}
 #| label: only-medalists
 
@@ -114,8 +115,6 @@ data |>
 
 
 ```
-
-
 
 # RESULTS
 
@@ -151,22 +150,49 @@ data |>
          if_else(Age < 26, "Young Adult", "Later Adult"))))
 ```
 
-
 ```{r}
 
 
-data |>
-  filter(Category == "Male Swimming") |>
-  group_by(Height) |>
+height_data <- data |>
+  group_by(Height, Category) |>
   summarize(medal_success = sum(Points))
 ```
 
-showcase how you arrived at answers to your research question using the techniques we have learned in class
+```{r}
+height_data |>
+  ggplot(
+    aes(x = Height, y = medal_success, fill = Category)
+  ) +
+  facet_wrap(~ Category) +
+  geom_col(binwidth = 1)
+```
 
-provide only the main results from your analysis
+```{r}
+weight_data <- data |>
+  group_by(Weight, Category) |>
+  summarize(medal_success = sum(Points))
+```
 
-demonstrate that you are proficient at asking meaningful questions and answering them using data
+```{r}
+weight_data |>
+  ggplot(
+    aes(x = Weight, y = medal_success, fill = Category)
+  ) +
+  facet_wrap(~ Category) +
+  geom_col(binwidth = 1)
+```
 
-that you are skilled in interpreting and presenting results
+```{r}
+age_data <- data |>
+  group_by(Age, Category) |>
+  summarize(medal_success = sum(Points))
+```
 
-and that you can accomplish these tasks using R
+```{r}
+age_data |>
+  ggplot(
+    aes(x = Age, y = medal_success, fill = Category)
+  ) +
+  facet_wrap(~ Category) +
+  geom_col(binwidth = 1)
+```
