@@ -16,17 +16,13 @@ library(tidyverse)
 library(tidymodels)
 ```
 
-## INTRODUCTION
-
-## describe your topic (citing sources), provide a concise, clear statement of your research question and hypotheses, consider any potential ethical issues that you believe should be addressed (if any) regarding how your data were collected, identify the source of the data, when and how it was collected, the cases, a general description of relevant variables
+## INTRODUCTION - DONE
 
 For this research project, we chose the topic of Olympic athletes from the sports of Swimming and Gymnastics. We are looking into the specific variables of age, height, and weight to see how these affect performance at a high level, and how these vary across the two sports. As such, our research question is: how do factors like age, height, and weight correlate with medal success rate across gymnastics and swimming? For this question, we hypothesize that the ideal height, weight, and age to win a medal will all be greater in swimming than in gymnastics.
 
 To answer this research question, we will use the relevant variables of age, height, weight, medal won, sex, and sport. The numerical variables are age (in years), height (in centimeters), and weight (in kilograms). The character variables we are using are medal won, sex, and sport. For our analysis, we will filter the data set to only include gymnastics and swimming, the sports we are interested in analyzing.
 
 We found this data set online at Kaggle, but the original data was from www.sports-reference.com. It was researched by a group of Olympic history enthusiasts and compiled into the data set format using R by Randi H. Griffin. The data was uploaded to the Kaggle website in 2018.
-
-\<\<\<\<\<\<\< HEAD Using this data set, there are minimal to no ethical concerns, as this data was collected from a publicaally accessible site. Additionally, all of this data was able be compiled by anyone, as Olympic athletes and their medals are also public information. We did not interview or collect any information ourselves, and their is no private health information or other private information availible in this data. As such, there are no risks to the participants in our data collection and use of this data.
 
 Using this data set, there are minimal to no ethical concerns, as this data was collected from a publicly accessible site. Additionally, all of this data was able be compiled by anyone, as Olympic athletes and their medals are also public information. We did not interview or collect any information ourselves, and their is no private health information or other private information available in this data. As such, there are no risks to the participants in our data collection and use of this data.
 
@@ -36,9 +32,9 @@ For this research topic, we will have to view which ages, heights, and weights h
 
 # METHODOLOGY
 
-visualizations and summary statistics relevant to your research question
+## justify the choice of statistical method(s) used to answer your research question
 
-justify the choice of statistical method(s) used to answer your research question
+To answer our research question, we used statistical methods of ____ 
 
 ```{r}
 #| label: data
@@ -83,7 +79,6 @@ data |>
 
 ```
 
-Repeat but filter out non-medalists
 
 ```{r}
 #| label: only-medalists
@@ -98,7 +93,6 @@ data |>
 
 ```
 
-facet wrap by category, filter out non medalists, color by medal (fun hex codes!)
 
 ```{r}
 data |>
@@ -116,18 +110,6 @@ data |>
 
 ```
 
-# RESULTS
-
-1.  select only the parts of the data set we need (filter by sports)
-2.  mutate to get the medal values numeric
-3.  visualize the height and weight and whether or not they received a medal
-4.  then separate by gender and see if it changes
-
-**NOTE - maybe mutate variable to create height categories?**
-
-*Could also try creating confidence intervals surrounding mean heights in each sport? Not sure but an idea*
-
-*Could also do age categories?*
 
 ```{r}
 #| label: age-category-info
@@ -196,3 +178,6 @@ age_data |>
   facet_wrap(~ Category) +
   geom_col(binwidth = 1)
 ```
+
+# RESULTS 
+
