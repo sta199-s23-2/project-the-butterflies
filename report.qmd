@@ -129,7 +129,12 @@ data |>
 data |>
   mutate(Age_Category = if_else(Age < 13, "Adolescent",
          if_else(Age < 18, "Teenager", 
-         if_else(Age < 26, "Young Adult", "Later Adult"))))
+         if_else(Age < 26, "Young Adult", "Later Adult")))) |>
+  ggplot(
+    aes( y = Points, fill = Age_Category)
+  ) +
+  facet_wrap(~ Category) +
+  geom_bar(position = "fill")
 ```
 
 ```{r}
@@ -180,4 +185,4 @@ age_data |>
 ```
 
 # RESULTS 
-
+Based on our visualizations, numerous conclusions can be made. 
