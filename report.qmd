@@ -321,4 +321,4 @@ age_data |>
 
 # RESULTS
 
-Based on our visualizations, numerous conclusions can be made.
+Based on our visualizations, numerous conclusions can be made. We have not only found the sample means but the true population parameter with a 99% confidence interval by sport for height, weight, and age for the statistic that leads to the most medal success. We can use this data later to make our point about the ideal heights, weights, and ages, for Male Swimming, Female Swimming, Male Gymnastics, and Female Gymnastics in the Olympics.
