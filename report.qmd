@@ -152,6 +152,52 @@ height_data |>
 ```
 
 ```{r}
+height_data |>
+  group_by(Category) |>
+  summarize(median = median(Height),
+            mean = mean(Height))
+```
+
+```{r}
+set.seed(6) 
+height_data |>
+  group_by(Category) |>
+  filter(Category == "Female Swimming") |>
+  specify(response = Height) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+height_data |>
+  group_by(Category) |>
+  filter(Category == "Male Swimming") |>
+  specify(response = Height) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+height_data |>
+  group_by(Category) |>
+  filter(Category == "Female Gymnastics") |>
+  specify(response = Height) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+height_data |>
+  group_by(Category) |>
+  filter(Category == "Male Gymnastics") |>
+  specify(response = Height) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+```
+
+```{r}
 weight_data <- data |>
   group_by(Weight, Category) |>
   summarize(medal_success = sum(Points))
@@ -167,10 +213,42 @@ weight_data |>
 ```
 
 ```{r}
-height_data |>
+set.seed(6) 
+weight_data |>
   group_by(Category) |>
-  summarize(median = median(Height),
-            mean = mean(Height))
+  filter(Category == "Female Swimming") |>
+  specify(response = Weight) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+weight_data |>
+  group_by(Category) |>
+  filter(Category == "Male Swimming") |>
+  specify(response = Weight) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+weight_data |>
+  group_by(Category) |>
+  filter(Category == "Female Gymnastics") |>
+  specify(response = Weight) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+weight_data |>
+  group_by(Category) |>
+  filter(Category == "Male Gymnastics") |>
+  specify(response = Weight) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
 ```
 
 ```{r}
@@ -200,6 +278,45 @@ age_data |>
   group_by(Category) |>
   summarize(median = median(Age),
             mean = mean(Age))
+```
+
+```{r}
+set.seed(6) 
+age_data |>
+  group_by(Category) |>
+  filter(Category == "Female Swimming") |>
+  specify(response = Age) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+age_data |>
+  group_by(Category) |>
+  filter(Category == "Male Swimming") |>
+  specify(response = Age) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+age_data |>
+  group_by(Category) |>
+  filter(Category == "Female Gymnastics") |>
+  specify(response = Age) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+age_data |>
+  group_by(Category) |>
+  filter(Category == "Male Gymnastics") |>
+  specify(response = Age) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
 ```
 
 # RESULTS
