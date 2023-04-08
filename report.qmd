@@ -34,7 +34,7 @@ For this research topic, we will have to view which ages, heights, and weights h
 
 ## justify the choice of statistical method(s) used to answer your research question
 
-To answer our research question, we used statistical methods of \_\_\_\_
+To answer our research question, we used statistical methods of using our olympic data set and filtering it to only include the sports Female and Male Gymnastics, and Female and Male Swimming. From there, we filtered by only the rows that have Ages, Heights, and Weights. We then mapped out the height and weight for every olympian in these sports, then only the medalists, and finally faceted by which medal the olympians won. From there, using only the medalists, we found the mean and median of each category and height, weight, and age and visualized the mean. We also found a 99% confidence interval using the bootstrap method for the true population parameter of each of theses subcategories.
 
 ```{r}
 #| label: data
@@ -106,18 +106,6 @@ data |>
   labs(x = "Height(cm)", y = "Weight(kg)", color = "Medal")
 
 
-```
-
-```{r}
-#| label: age-category-info
-
-data |>
-  filter(!is.na(Age)) |>
-  slice_max(Age)
-
-data |>
-  filter(!is.na(Age)) |>
-  slice_min(Age)
 ```
 
 ```{r}
@@ -322,3 +310,5 @@ age_data |>
 # RESULTS
 
 Based on our visualizations, numerous conclusions can be made. We have not only found the sample means but the true population parameter with a 99% confidence interval by sport for height, weight, and age for the statistic that leads to the most medal success. We can use this data later to make our point about the ideal heights, weights, and ages, for Male Swimming, Female Swimming, Male Gymnastics, and Female Gymnastics in the Olympics. Across both sports and genders, there is a positive linear relationship between height and weight. The female gymnasts appear to be both the shortest and lightest on average, while the male swimmers appear to be both the tallest and heaviest on average. Interestingly, the male gymnasts and female swimmers appear to have fairly similar heights and weights on average. The distributions of heights and weights remain fairly consistent when all athletes are included or just athletes who won a medal. Among medal winners, within each sport the distribution of heights and weights based on medal appears fairly random, gold medal winners are not especially taller or heavier than silver or bronze medal winners within the same sport. For age, male swimmers, male gymnasts and female swimmers all had similar age distributions centered between 20 and 25 years old, while female gymnasts were noticeably younger with a distribution centered around 17 years old. Within each sport the distribution of ages remained fairly consistent when filtered by medal winners, so medal winners were not significantly older or younger than non-medal winners within their sport.
+
+We
