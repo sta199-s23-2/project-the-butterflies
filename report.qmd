@@ -34,7 +34,7 @@ For this research topic, we will have to view which ages, heights, and weights h
 
 ## justify the choice of statistical method(s) used to answer your research question
 
-To answer our research question, we used statistical methods of ____ 
+To answer our research question, we used statistical methods of \_\_\_\_
 
 ```{r}
 #| label: data
@@ -79,7 +79,6 @@ data |>
 
 ```
 
-
 ```{r}
 #| label: only-medalists
 
@@ -92,7 +91,6 @@ data |>
   labs(x = "Height(cm)", y = "Weight(kg)", color = "Sport", title = "Height and weight of Olympic medalists \nby sport and gender")
 
 ```
-
 
 ```{r}
 data |>
@@ -109,7 +107,6 @@ data |>
 
 
 ```
-
 
 ```{r}
 #| label: age-category-info
@@ -170,6 +167,13 @@ weight_data |>
 ```
 
 ```{r}
+height_data |>
+  group_by(Category) |>
+  summarize(median = median(Height),
+            mean = mean(Height))
+```
+
+```{r}
 age_data <- data |>
   group_by(Age, Category) |>
   summarize(medal_success = sum(Points))
@@ -184,5 +188,20 @@ age_data |>
   geom_col(binwidth = 1)
 ```
 
-# RESULTS 
-Based on our visualizations, numerous conclusions can be made. 
+```{r}
+weight_data |>
+  group_by(Category) |>
+  summarize(median = median(Weight),
+            mean = mean(Weight))
+```
+
+```{r}
+age_data |>
+  group_by(Category) |>
+  summarize(median = median(Age),
+            mean = mean(Age))
+```
+
+# RESULTS
+
+Based on our visualizations, numerous conclusions can be made.
