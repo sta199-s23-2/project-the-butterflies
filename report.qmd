@@ -16,17 +16,13 @@ library(tidyverse)
 library(tidymodels)
 ```
 
-## INTRODUCTION
-
-## describe your topic (citing sources), provide a concise, clear statement of your research question and hypotheses, consider any potential ethical issues that you believe should be addressed (if any) regarding how your data were collected, identify the source of the data, when and how it was collected, the cases, a general description of relevant variables
+## INTRODUCTION - DONE
 
 For this research project, we chose the topic of Olympic athletes from the sports of Swimming and Gymnastics. We are looking into the specific variables of age, height, and weight to see how these affect performance at a high level, and how these vary across the two sports. As such, our research question is: how do factors like age, height, and weight correlate with medal success rate across gymnastics and swimming? For this question, we hypothesize that the ideal height, weight, and age to win a medal will all be greater in swimming than in gymnastics.
 
 To answer this research question, we will use the relevant variables of age, height, weight, medal won, sex, and sport. The numerical variables are age (in years), height (in centimeters), and weight (in kilograms). The character variables we are using are medal won, sex, and sport. For our analysis, we will filter the data set to only include gymnastics and swimming, the sports we are interested in analyzing.
 
 We found this data set online at Kaggle, but the original data was from www.sports-reference.com. It was researched by a group of Olympic history enthusiasts and compiled into the data set format using R by Randi H. Griffin. The data was uploaded to the Kaggle website in 2018.
-
-\<\<\<\<\<\<\< HEAD Using this data set, there are minimal to no ethical concerns, as this data was collected from a publicaally accessible site. Additionally, all of this data was able be compiled by anyone, as Olympic athletes and their medals are also public information. We did not interview or collect any information ourselves, and their is no private health information or other private information availible in this data. As such, there are no risks to the participants in our data collection and use of this data.
 
 Using this data set, there are minimal to no ethical concerns, as this data was collected from a publicly accessible site. Additionally, all of this data was able be compiled by anyone, as Olympic athletes and their medals are also public information. We did not interview or collect any information ourselves, and their is no private health information or other private information available in this data. As such, there are no risks to the participants in our data collection and use of this data.
 
@@ -36,9 +32,9 @@ For this research topic, we will have to view which ages, heights, and weights h
 
 # METHODOLOGY
 
-visualizations and summary statistics relevant to your research question
+## justify the choice of statistical method(s) used to answer your research question
 
-justify the choice of statistical method(s) used to answer your research question
+To answer our research question, we used statistical methods of using our olympic data set and filtering it to only include the sports Female and Male Gymnastics, and Female and Male Swimming. From there, we filtered by only the rows that have Ages, Heights, and Weights. We then mapped out the height and weight for every olympian in these sports, then only the medalists, and finally faceted by which medal the olympians won. From there, using only the medalists, we found the mean and median of each category and height, weight, and age and visualized the mean. We also found a 99% confidence interval using the bootstrap method for the true population parameter of each of theses subcategories.
 
 ```{r}
 #| label: data
@@ -83,14 +79,53 @@ data |>
 
 ```
 
-# RESULTS
+```{r}
+#| label: only-medalists
 
-1.  select only the parts of the data set we need (filter by sports)
-2.  mutate to get the medal values numeric
-3.  visualize the height and weight and whether or not they received a medal
-4.  then separate by gender and see if it changes
+data |>
+  filter(!is.na(Medal)) |>
+  ggplot(
+    aes(x = Height, y = Weight, color = Category)
+  ) +
+  geom_point(alpha = 0.75, size = 0.5) +
+  labs(x = "Height(cm)", y = "Weight(kg)", color = "Sport", title = "Height and weight of Olympic medalists \nby sport and gender")
+
+```
 
 ```{r}
+data |>
+  filter(!is.na(Medal)) |>
+  ggplot(
+    aes(x = Height, y = Weight, color = Medal)) +
+  facet_wrap(vars(Category)) +
+  geom_point(alpha = 0.5, size = 0.75) +
+  scale_color_manual(
+    values = c("Gold" = "#FFD700",
+               "Silver" = "#C0C0C0",
+               "Bronze" = "#CD7F32")) +
+  labs(title = "Height and Weight of Olympic Medalists",
+  subtitle = "by Sport, Gender, and Medal Won",
+       x = "Height(cm)", y = "Weight(kg)", color = "Medal")
+
+
+```
+
+```{r}
+#| label: age-categories
+#what do yall think of the categories...?? Struggled w names a bit
+data |>
+  mutate(Age_Category = if_else(Age < 13, "Adolescent",
+         if_else(Age < 18, "Teenager", 
+         if_else(Age < 26, "Young Adult", "Later Adult")))) |>
+  ggplot(
+    aes( y = Points, fill = Age_Category)
+  ) +
+  facet_wrap(~ Category) +
+  geom_bar(position = "fill")
+```
+
+```{r}
+<<<<<<< HEAD
 data |>
   filter(Category == "Male Swimming") |>
   group_by(Height) |>
@@ -100,9 +135,353 @@ data |>
 showcase how you arrived at answers to your research question using the techniques we have learned in class
  .
 provide only the main results from your analysis
+=======
 
-demonstrate that you are proficient at asking meaningful questions and answering them using data
 
-that you are skilled in interpreting and presenting results
+height_data <- data |>
+  group_by(Height, Category) |>
+  summarize(medal_success = sum(Points))
+```
 
-and that you can accomplish these tasks using R
+```{r}
+height_data |>
+  ggplot(
+    aes(x = Height, y = medal_success, fill = Category)
+  ) +
+  facet_wrap(~ Category) +
+  geom_col(binwidth = 1)
+```
+
+```{r}
+height_data |>
+  group_by(Category) |>
+  summarize(median = median(Height),
+            mean = mean(Height))
+```
+>>>>>>> bfed599463719742cd95e637ed5ca04c3c018453
+
+```{r}
+set.seed(6) 
+height_data |>
+  group_by(Category) |>
+  filter(Category == "Female Swimming") |>
+  specify(response = Height) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+height_data |>
+  group_by(Category) |>
+  filter(Category == "Male Swimming") |>
+  specify(response = Height) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+height_data |>
+  group_by(Category) |>
+  filter(Category == "Female Gymnastics") |>
+  specify(response = Height) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+height_data |>
+  group_by(Category) |>
+  filter(Category == "Male Gymnastics") |>
+  specify(response = Height) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+```
+
+```{r}
+weight_data <- data |>
+  group_by(Weight, Category) |>
+  summarize(medal_success = sum(Points))
+```
+
+```{r}
+weight_data |>
+  ggplot(
+    aes(x = Weight, y = medal_success, fill = Category)
+  ) +
+  facet_wrap(~ Category) +
+  geom_col(binwidth = 1)
+```
+
+```{r}
+set.seed(6) 
+weight_data |>
+  group_by(Category) |>
+  filter(Category == "Female Swimming") |>
+  specify(response = Weight) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+weight_data |>
+  group_by(Category) |>
+  filter(Category == "Male Swimming") |>
+  specify(response = Weight) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+weight_data |>
+  group_by(Category) |>
+  filter(Category == "Female Gymnastics") |>
+  specify(response = Weight) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+weight_data |>
+  group_by(Category) |>
+  filter(Category == "Male Gymnastics") |>
+  specify(response = Weight) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+```
+
+```{r}
+age_data <- data |>
+  group_by(Age, Category) |>
+  summarize(medal_success = sum(Points))
+```
+
+```{r}
+age_data |>
+  ggplot(
+    aes(x = Age, y = medal_success, fill = Category)
+  ) +
+  facet_wrap(~ Category) +
+  geom_col(binwidth = 1)
+```
+
+```{r}
+weight_data |>
+  group_by(Category) |>
+  summarize(median = median(Weight),
+            mean = mean(Weight))
+```
+
+```{r}
+age_data |>
+  group_by(Category) |>
+  summarize(median = median(Age),
+            mean = mean(Age))
+```
+
+```{r}
+set.seed(6) 
+age_data |>
+  group_by(Category) |>
+  filter(Category == "Female Swimming") |>
+  specify(response = Age) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+age_data |>
+  group_by(Category) |>
+  filter(Category == "Male Swimming") |>
+  specify(response = Age) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+age_data |>
+  group_by(Category) |>
+  filter(Category == "Female Gymnastics") |>
+  specify(response = Age) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+
+age_data |>
+  group_by(Category) |>
+  filter(Category == "Male Gymnastics") |>
+  specify(response = Age) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate (stat = "mean") |>
+    summarize(lower = quantile(stat, .005),
+              upper = quantile(stat, .995))
+```
+
+HYPOTHESIS TEST : true mean heights of medal winners / non medal winners are / are not equal
+
+```{r}
+
+#| label: hypotestingheight
+
+medaldata <- data |>
+  mutate(Medal2 = case_when(Points == 1 ~ "medal",
+                            Points == 2 ~ "medal",
+                            Points == 3 ~ "medal",
+                            Points == 0 ~ "no medal"))
+  
+medaldata |>
+  group_by(Category, Medal2) |>
+  summarize(meanheight = mean(Height))
+
+null_distfg <- medaldata |>
+  filter(Category == "Female Gymnastics") |>
+  specify(response = Height, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distfg |>
+  get_p_value(obs_stat = 1.11, direction = "two sided")
+
+null_distmg <- medaldata |>
+  filter(Category == "Male Gymnastics") |>
+  specify(response = Height, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distmg |>
+  get_p_value(obs_stat = 1.68, direction = "two sided")
+
+null_distfs <- medaldata |>
+  filter(Category == "Female Swimming") |>
+  specify(response = Height, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distfs |>
+  get_p_value(obs_stat = 3.19, direction = "two sided")
+
+null_distms <- medaldata |>
+  filter(Category == "Male Swimming") |>
+  specify(response = Height, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distms |>
+  get_p_value(obs_stat = 3.17, direction = "two sided")
+
+```
+
+all p values \< 0.01 so strong evidence there is a difference in height between medal and non medal winners. (medal gymnasts were shorter, medal swimmers were taller)
+
+```{r}
+#| label: hypotestingweight
+
+medaldata |>
+  group_by(Category, Medal2) |>
+  summarize(meanweight = mean(Weight))
+
+null_distfg2 <- medaldata |>
+  filter(Category == "Female Gymnastics") |>
+  specify(response = Weight, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distfg2 |>
+  get_p_value(obs_stat = 1.54, direction = "two sided")
+
+null_distmg2 <- medaldata |>
+  filter(Category == "Male Gymnastics") |>
+  specify(response = Weight, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distmg2 |>
+  get_p_value(obs_stat = 1.57, direction = "two sided")
+
+null_distfs2 <- medaldata |>
+  filter(Category == "Female Swimming") |>
+  specify(response = Weight, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distfs2 |>
+  get_p_value(obs_stat = 3, direction = "two sided")
+
+null_distms2 <- medaldata |>
+  filter(Category == "Male Swimming") |>
+  specify(response = Weight, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distms2 |>
+  get_p_value(obs_stat = 3.81, direction = "two sided")
+
+```
+
+all p values \< 0.01 so strong evidence there is a difference in weight between medal and non medal winners. (medal gymnasts were lighter, medal swimmers were heavier)
+
+```{r}
+#| label: hypotestingage
+
+medaldata |>
+  group_by(Category, Medal2) |>
+  summarize(meanage = mean(Age))
+
+null_distfg3 <- medaldata |>
+  filter(Category == "Female Gymnastics") |>
+  specify(response = Age, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distfg3 |>
+  get_p_value(obs_stat = 0.49, direction = "two sided")
+
+null_distmg3 <- medaldata |>
+  filter(Category == "Male Gymnastics") |>
+  specify(response = Age, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distmg2 |>
+  get_p_value(obs_stat = 0.07, direction = "two sided")
+
+null_distfs3 <- medaldata |>
+  filter(Category == "Female Swimming") |>
+  specify(response = Age, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distfs3 |>
+  get_p_value(obs_stat = 0.47, direction = "two sided")
+
+null_distms3 <- medaldata |>
+  filter(Category == "Male Swimming") |>
+  specify(response = Age, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distms3 |>
+  get_p_value(obs_stat = 0.58, direction = "two sided")
+```
+
+only strong evidence for female gymnasts, female swimmers, and male swimmers for a difference in true mean age between medal winners and non medal winners, no strong evidence for difference between medal winners and non medal winners in male gymnastics because p-value was \> 0.01 (for all the medal winners are slightly older).
+
+# RESULTS
+
+Based on our visualizations, numerous conclusions can be made. We have not only found the sample means but the true population parameter with a 99% confidence interval by sport for height, weight, and age for the statistic that leads to the most medal success. We can use this data later to make our point about the ideal heights, weights, and ages, for Male Swimming, Female Swimming, Male Gymnastics, and Female Gymnastics in the Olympics. Across both sports and genders, there is a positive linear relationship between height and weight. The female gymnasts appear to be both the shortest and lightest on average, while the male swimmers appear to be both the tallest and heaviest on average. Interestingly, the male gymnasts and female swimmers appear to have fairly similar heights and weights on average. The distributions of heights and weights remain fairly consistent when all athletes are included or just athletes who won a medal. Among medal winners, within each sport the distribution of heights and weights based on medal appears fairly random, gold medal winners are not especially taller or heavier than silver or bronze medal winners within the same sport. For age, male swimmers, male gymnasts and female swimmers all had similar age distributions centered between 20 and 25 years old, while female gymnasts were noticeably younger with a distribution centered around 17 years old. Within each sport the distribution of ages remained fairly consistent when filtered by medal winners, so medal winners were not significantly older or younger than non-medal winners within their sport.
