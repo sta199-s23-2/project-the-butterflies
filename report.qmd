@@ -307,6 +307,74 @@ age_data |>
               upper = quantile(stat, .995))
 ```
 
+HYPOTHESIS TEST : true mean heights of medal winners / non medal winners are / are not equal
+
+```{r}
+
+#| label: means
+
+medaldata <- data |>
+  mutate(Medal2 = case_when(Points == 1 ~ "medal",
+                            Points == 2 ~ "medal",
+                            Points == 3 ~ "medal",
+                            Points == 0 ~ "no medal"))
+  
+medaldata |>
+  group_by(Category, Medal2) |>
+  summarize(meanheight = mean(Height))
+
+null_distfg <- medaldata |>
+  filter(Category == "Female Gymnastics") |>
+  specify(response = Height, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distfg |>
+  get_p_value(obs_stat = 1.11, direction = "two sided")
+
+null_distmg <- medaldata |>
+  filter(Category == "Male Gymnastics") |>
+  specify(response = Height, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distmg |>
+  get_p_value(obs_stat = 1.68, direction = "two sided")
+
+null_distfs <- medaldata |>
+  filter(Category == "Female Swimming") |>
+  specify(response = Height, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distfs |>
+  get_p_value(obs_stat = 3.19, direction = "two sided")
+
+null_distms <- medaldata |>
+  filter(Category == "Male Swimming") |>
+  specify(response = Height, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distms |>
+  get_p_value(obs_stat = 3.17, direction = "two sided")
+
+```
+
+fg = 1.11
+
+mg = 1.68
+
+fs = 3.19
+
+ms = 3.17
+
+all p values \< 0.01 so strong evidence there is a difference in height between medal and non medal winners.
+
 # RESULTS
 
 Based on our visualizations, numerous conclusions can be made. We have not only found the sample means but the true population parameter with a 99% confidence interval by sport for height, weight, and age for the statistic that leads to the most medal success. We can use this data later to make our point about the ideal heights, weights, and ages, for Male Swimming, Female Swimming, Male Gymnastics, and Female Gymnastics in the Olympics. Across both sports and genders, there is a positive linear relationship between height and weight. The female gymnasts appear to be both the shortest and lightest on average, while the male swimmers appear to be both the tallest and heaviest on average. Interestingly, the male gymnasts and female swimmers appear to have fairly similar heights and weights on average. The distributions of heights and weights remain fairly consistent when all athletes are included or just athletes who won a medal. Among medal winners, within each sport the distribution of heights and weights based on medal appears fairly random, gold medal winners are not especially taller or heavier than silver or bronze medal winners within the same sport. For age, male swimmers, male gymnasts and female swimmers all had similar age distributions centered between 20 and 25 years old, while female gymnasts were noticeably younger with a distribution centered around 17 years old. Within each sport the distribution of ages remained fairly consistent when filtered by medal winners, so medal winners were not significantly older or younger than non-medal winners within their sport.
