@@ -11,11 +11,11 @@ editor: visual
 #| warning: false
 
 library(tidyverse)
-CollegeBasketballPlayers2009_2021 <- read_csv("CollegeBasketballPlayers2009-2021.csv")
+#CollegeBasketballPlayers2009_2021 <- read_csv("CollegeBasketballPlayers2009-2021.csv")
 
-top_spotify_songs <- read_csv("songs_normalize 3.csv")
+#top_spotify_songs <- read_csv("songs_normalize 3.csv")
 
-olympic_data <- read_csv("athlete_events.csv")
+#olympic_data <- read_csv("athlete_events.csv")
 ```
 
 # Data 1
@@ -67,7 +67,7 @@ Our research question is different than the article because it includes many mor
 ```{r}
 #| label: load-data-1
 
-glimpse(CollegeBasketballPlayers2009_2021)
+#glimpse(CollegeBasketballPlayers2009_2021)
 
 ```
 
@@ -120,7 +120,7 @@ glimpse(CollegeBasketballPlayers2009_2021)
 ```{r}
 #| label: load-data-2
 
-glimpse(top_spotify_songs)
+#glimpse(top_spotify_songs)
 ```
 
 # Data 3
@@ -176,5 +176,5 @@ This talks about the average height for womens gymnastics. Our research question
 ```{r}
 #| label: load-data-3
 
-glimpse(olympic_data)
+#glimpse(olympic_data)
 ```
