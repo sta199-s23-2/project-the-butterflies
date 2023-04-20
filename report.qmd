@@ -125,19 +125,13 @@ data |>
 ```
 
 ```{r}
-<<<<<<< HEAD
 data |>
   filter(Category == "Male Swimming") |>
   group_by(Height) |>
   summarize(medal_success = sum(Points))
 ```
 
-showcase how you arrived at answers to your research question using the techniques we have learned in class
- .
-provide only the main results from your analysis
-=======
-
-
+```{r}
 height_data <- data |>
   group_by(Height, Category) |>
   summarize(medal_success = sum(Points))
@@ -152,13 +146,15 @@ height_data |>
   geom_col(binwidth = 1)
 ```
 
+
+
 ```{r}
 height_data |>
   group_by(Category) |>
   summarize(median = median(Height),
             mean = mean(Height))
 ```
->>>>>>> bfed599463719742cd95e637ed5ca04c3c018453
+
 
 ```{r}
 set.seed(6) 
