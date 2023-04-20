@@ -103,7 +103,9 @@ data |>
     values = c("Gold" = "#FFD700",
                "Silver" = "#C0C0C0",
                "Bronze" = "#CD7F32")) +
-  labs(x = "Height(cm)", y = "Weight(kg)", color = "Medal")
+  labs(title = "Height and Weight of Olympic Medalists",
+  subtitle = "by Sport, Gender, and Medal Won",
+       x = "Height(cm)", y = "Weight(kg)", color = "Medal")
 
 
 ```
@@ -365,7 +367,7 @@ null_distms |>
 
 ```
 
-all p values \< 0.01 so strong evidence there is a difference in height between medal and non medal winners. (medal gymnasts were shorter, medal swimmers were taller
+all p values \< 0.01 so strong evidence there is a difference in height between medal and non medal winners. (medal gymnasts were shorter, medal swimmers were taller)
 
 ```{r}
 #| label: hypotestingweight
