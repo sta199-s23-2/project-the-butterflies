@@ -311,7 +311,7 @@ HYPOTHESIS TEST : true mean heights of medal winners / non medal winners are / a
 
 ```{r}
 
-#| label: means
+#| label: hypotestingheight
 
 medaldata <- data |>
   mutate(Medal2 = case_when(Points == 1 ~ "medal",
@@ -365,15 +365,108 @@ null_distms |>
 
 ```
 
-fg = 1.11
+all p values \< 0.01 so strong evidence there is a difference in height between medal and non medal winners. (medal gymnasts were shorter, medal swimmers were taller
 
-mg = 1.68
+```{r}
+#| label: hypotestingweight
 
-fs = 3.19
+medaldata |>
+  group_by(Category, Medal2) |>
+  summarize(meanweight = mean(Weight))
 
-ms = 3.17
+null_distfg2 <- medaldata |>
+  filter(Category == "Female Gymnastics") |>
+  specify(response = Weight, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
 
-all p values \< 0.01 so strong evidence there is a difference in height between medal and non medal winners.
+null_distfg2 |>
+  get_p_value(obs_stat = 1.54, direction = "two sided")
+
+null_distmg2 <- medaldata |>
+  filter(Category == "Male Gymnastics") |>
+  specify(response = Weight, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distmg2 |>
+  get_p_value(obs_stat = 1.57, direction = "two sided")
+
+null_distfs2 <- medaldata |>
+  filter(Category == "Female Swimming") |>
+  specify(response = Weight, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distfs2 |>
+  get_p_value(obs_stat = 3, direction = "two sided")
+
+null_distms2 <- medaldata |>
+  filter(Category == "Male Swimming") |>
+  specify(response = Weight, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distms2 |>
+  get_p_value(obs_stat = 3.81, direction = "two sided")
+
+```
+
+all p values \< 0.01 so strong evidence there is a difference in weight between medal and non medal winners. (medal gymnasts were lighter, medal swimmers were heavier)
+
+```{r}
+#| label: hypotestingage
+
+medaldata |>
+  group_by(Category, Medal2) |>
+  summarize(meanage = mean(Age))
+
+null_distfg3 <- medaldata |>
+  filter(Category == "Female Gymnastics") |>
+  specify(response = Age, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distfg3 |>
+  get_p_value(obs_stat = 0.49, direction = "two sided")
+
+null_distmg3 <- medaldata |>
+  filter(Category == "Male Gymnastics") |>
+  specify(response = Age, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distmg2 |>
+  get_p_value(obs_stat = 0.07, direction = "two sided")
+
+null_distfs3 <- medaldata |>
+  filter(Category == "Female Swimming") |>
+  specify(response = Age, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distfs3 |>
+  get_p_value(obs_stat = 0.47, direction = "two sided")
+
+null_distms3 <- medaldata |>
+  filter(Category == "Male Swimming") |>
+  specify(response = Age, explanatory = Medal2) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means",  order = c("medal", "no medal"))
+
+null_distms3 |>
+  get_p_value(obs_stat = 0.58, direction = "two sided")
+```
+
+only strong evidence for female gymnasts, female swimmers, and male swimmers for a difference in true mean age between medal winners and non medal winners, no strong evidence for difference between medal winners and non medal winners in male gymnastics because p-value was \> 0.01 (for all the medal winners are slightly older).
 
 # RESULTS
 
