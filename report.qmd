@@ -346,7 +346,7 @@ null_distfg <- medaldata |>
   calculate(stat = "diff in means",  order = c("medal", "no medal"))
 
 null_distfg |>
-  get_p_value(obs_stat = 1.11, direction = "two sided")
+  get_p_value(obs_stat = -1.11, direction = "two sided")
 
 null_distmg <- medaldata |>
   filter(Category == "Male Gymnastics") |>
@@ -356,7 +356,7 @@ null_distmg <- medaldata |>
   calculate(stat = "diff in means",  order = c("medal", "no medal"))
 
 null_distmg |>
-  get_p_value(obs_stat = 1.68, direction = "two sided")
+  get_p_value(obs_stat = -1.68, direction = "two sided")
 
 null_distfs <- medaldata |>
   filter(Category == "Female Swimming") |>
@@ -383,6 +383,20 @@ null_distms |>
 all p values \< 0.01 so strong evidence there is a difference in height between medal and non medal winners. (medal gymnasts were shorter, medal swimmers were taller)
 
 One-sided p-value tests to verify final two conclusions:
+
+Notation:
+
+Gymnastics:
+
+$H_O: \mu_{med-height} - \mu_{no-med-height} = 0$
+
+$H_A: \mu_{med-height} - \mu_{no-med-height} < 0$
+
+Swimming:
+
+$H_O: \mu_{med-height} - \mu_{no-med-height} = 0$
+
+$H_A: \mu_{med-height} - \mu_{no-med-height} > 0$
 
 ```{r}
 #|label: one-sided
