@@ -146,15 +146,12 @@ height_data |>
   geom_col(binwidth = 1)
 ```
 
-
-
 ```{r}
 height_data |>
   group_by(Category) |>
   summarize(median = median(Height),
             mean = mean(Height))
 ```
-
 
 ```{r}
 set.seed(6) 
@@ -319,6 +316,14 @@ age_data |>
 
 HYPOTHESIS TEST : true mean heights of medal winners / non medal winners are / are not equal
 
+Hypotheses in proper notation:
+
+For each sport:
+
+$H_O: \mu_{med-height} - \mu_{no-med-height} = 0$
+
+$H_A: \mu_{med-height} - \mu_{no-med-height} \neq 0$
+
 ```{r}
 
 #| label: hypotestingheight
@@ -375,7 +380,7 @@ null_distms |>
 
 ```
 
-all p values \< 0.01 so strong evidence there is a difference in height between medal and non medal winners. (medal gymnasts were shorter, medal swimmers were taller)
+all p values \< 0.01 so strong evidence there is a difference in height between medal and non medal winners. (medal gymnasts were shorter, medal swimmers were taller)\*\*
 
 ```{r}
 #| label: hypotestingweight
