@@ -412,6 +412,14 @@ null_distms |>
 
 ```
 
+Notation:
+
+For each sport:
+
+$H_O: \mu_{med-weight} - \mu_{no-med-weight} = 0$
+
+$H_A: \mu_{med-weight} - \mu_{no-med-weight} \neq 0$
+
 ```{r}
 #| label: hypotestingweight
 
@@ -427,7 +435,7 @@ null_distfg2 <- medaldata |>
   calculate(stat = "diff in means",  order = c("medal", "no medal"))
 
 null_distfg2 |>
-  get_p_value(obs_stat = 1.54, direction = "two sided")
+  get_p_value(obs_stat = -1.54, direction = "two sided")
 
 null_distmg2 <- medaldata |>
   filter(Category == "Male Gymnastics") |>
@@ -437,7 +445,7 @@ null_distmg2 <- medaldata |>
   calculate(stat = "diff in means",  order = c("medal", "no medal"))
 
 null_distmg2 |>
-  get_p_value(obs_stat = 1.57, direction = "two sided")
+  get_p_value(obs_stat = -1.57, direction = "two sided")
 
 null_distfs2 <- medaldata |>
   filter(Category == "Female Swimming") |>
@@ -463,6 +471,40 @@ null_distms2 |>
 
 all p values \< 0.01 so strong evidence there is a difference in weight between medal and non medal winners. (medal gymnasts were lighter, medal swimmers were heavier)
 
+One sided p-tests:
+
+For gymnastics:
+
+$H_O: \mu_{med-weight} - \mu_{no-med-weight} = 0$
+
+$H_A: \mu_{med-weight} - \mu_{no-med-weight} < 0$
+
+For swimming:
+
+$H_O: \mu_{med-weight} - \mu_{no-med-weight} > 0$
+
+$H_A: \mu_{med-weight} - \mu_{no-med-weight} > 0$
+
+```{r}
+#| label: one-sided-weight
+
+null_distfg2 |>
+  get_p_value(obs_stat = -1.54, direction = "less")
+null_distfs2 |>
+  get_p_value(obs_stat = 3, direction = "greater")
+null_distmg2 |>
+  get_p_value(obs_stat = -1.57, direction = "less")
+null_distms2 |>
+  get_p_value(obs_stat = 3.81, direction = "greater")
+
+```
+
+Hypothesis test notation (for each sport):
+
+$H_O: \mu_{med-age} - \mu_{no-med-age} = 0$
+
+$H_A: \mu_{med-age} - \mu_{no-med-age} \neq 0$
+
 ```{r}
 #| label: hypotestingage
 
@@ -487,7 +529,7 @@ null_distmg3 <- medaldata |>
   generate(reps = 1000, type = "permute") |>
   calculate(stat = "diff in means",  order = c("medal", "no medal"))
 
-null_distmg2 |>
+null_distmg3 |>
   get_p_value(obs_stat = 0.07, direction = "two sided")
 
 null_distfs3 <- medaldata |>
@@ -509,6 +551,26 @@ null_distms3 <- medaldata |>
 
 null_distms3 |>
   get_p_value(obs_stat = 0.58, direction = "two sided")
+```
+
+Notation for each sport:
+
+$H_O: \mu_{med-age} - \mu_{no-med-age} = 0$
+
+$H_A: \mu_{med-age} - \mu_{no-med-age} > 0$
+
+```{r}
+#| label: one-sided-age
+
+null_distfg3 |>
+  get_p_value(obs_stat = 0.49, direction = "greater")
+null_distfs3 |>
+  get_p_value(obs_stat = 0.47, direction = "greater")
+null_distmg3 |>
+  get_p_value(obs_stat = 0.07, direction = "greater")
+null_distms3 |>
+  get_p_value(obs_stat = 0.58, direction = "greater")
+
 ```
 
 only strong evidence for female gymnasts, female swimmers, and male swimmers for a difference in true mean age between medal winners and non medal winners, no strong evidence for difference between medal winners and non medal winners in male gymnastics because p-value was \> 0.01 (for all the medal winners are slightly older).
