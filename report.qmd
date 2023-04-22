@@ -380,7 +380,23 @@ null_distms |>
 
 ```
 
-all p values \< 0.01 so strong evidence there is a difference in height between medal and non medal winners. (medal gymnasts were shorter, medal swimmers were taller)\*\*
+all p values \< 0.01 so strong evidence there is a difference in height between medal and non medal winners. (medal gymnasts were shorter, medal swimmers were taller)
+
+One-sided p-value tests to verify final two conclusions:
+
+```{r}
+#|label: one-sided
+
+null_distfg |>
+  get_p_value(obs_stat = -1.11, direction = "less")
+null_distfs |>
+  get_p_value(obs_stat = 3.19, direction = "greater")
+null_distmg |>
+  get_p_value(obs_stat = -1.68, direction = "less")
+null_distms |>
+  get_p_value(obs_stat = 3.17, direction = "greater")
+
+```
 
 ```{r}
 #| label: hypotestingweight
