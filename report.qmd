@@ -516,3 +516,5 @@ only strong evidence for female gymnasts, female swimmers, and male swimmers for
 # RESULTS
 
 Based on our visualizations, numerous conclusions can be made. We have not only found the sample means but the true population parameter with a 99% confidence interval by sport for height, weight, and age for the statistic that leads to the most medal success. We can use this data later to make our point about the ideal heights, weights, and ages, for Male Swimming, Female Swimming, Male Gymnastics, and Female Gymnastics in the Olympics. Across both sports and genders, there is a positive linear relationship between height and weight. The female gymnasts appear to be both the shortest and lightest on average, while the male swimmers appear to be both the tallest and heaviest on average. Interestingly, the male gymnasts and female swimmers appear to have fairly similar heights and weights on average.
+
+We used hypothesis testing to assess the difference in mean heights, weights, and ages between the medal winning and non medal winning populations of each of the four sport/gender combinations.
