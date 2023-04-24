@@ -1,8 +1,8 @@
 ---
-title: "TEAM NAME"
+title: "The Butterflies"
 subtitle: "STA 199 Project"
 format: html
 editor: visual
 ---
 
-Add project abstract here.
+This project researched the physical characteristics of Olympic athletes in the sports of Swimming and Gymnastics, using a dataset including Olympic results from 1896 to 2016. From our analysis we determined the general intervals of ideal height, weight, and age for male and female gymnasts and swimmers. Additionally, we concluded that there was strong evidence to support the hypothesis that there are overall differences between the average body types of medal winning and non medal winning athletes for each of the sports and genders.
