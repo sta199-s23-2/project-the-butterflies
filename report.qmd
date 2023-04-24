@@ -418,13 +418,17 @@ Dataviz for the above tests:
 #| label: viz-null-dist-height
 
 visualize(null_distfg) +
-  shade_p_value(obs_stat = -1.11, direction = "less")
+  shade_p_value(obs_stat = -1.11, direction = "less") +
+  labs(title = "Height of Female Gymnasts")
 visualize(null_distfs) +
-  shade_p_value(obs_stat = 3.19, direction = "greater")
+  shade_p_value(obs_stat = 3.19, direction = "greater") +
+  labs(title = "Height of Female Swimmers ")
 visualize(null_distmg) +
-  shade_p_value(obs_stat = -1.68, direction = "less")
+  shade_p_value(obs_stat = -1.68, direction = "less") +
+  labs(title = "Height of Male Gymnasts")
 visualize(null_distms) +
-  shade_p_value(obs_stat = 3.17, direction = "greater")
+  shade_p_value(obs_stat = 3.17, direction = "greater") +
+  labs(title = "Height of Male Swimmers")
 
 ```
 
@@ -521,13 +525,17 @@ Dataviz for weight:
 #| label: dataviz-weight
 
 visualize(null_distfg2) +
-  shade_p_value(obs_stat = -1.54, direction = "less")
+  shade_p_value(obs_stat = -1.54, direction = "less") +
+  labs(title = "Weight of Female Gymnasts")
 visualize(null_distfs2) +
-  shade_p_value(obs_stat = 3, direction = "greater")
+  shade_p_value(obs_stat = 3, direction = "greater") +
+  labs(title = "Weight of Female Swimmers")
 visualize(null_distmg2) +
-  shade_p_value(obs_stat = -1.57, direction = "less")
+  shade_p_value(obs_stat = -1.57, direction = "less") +
+  labs(title = "Weight of Male Gymnasts")
 visualize(null_distms2) +
-  shade_p_value(obs_stat = 3.81, direction = "greater")
+  shade_p_value(obs_stat = 3.81, direction = "greater") +
+  labs(title = "Weight of Male Swimmers")
 ```
 
 Hypothesis test notation (for each sport):
@@ -610,13 +618,17 @@ Dataviz for age:
 #| label: dataviz-age
 
 visualize(null_distfg3) +
-  shade_p_value(obs_stat = 0.49, direction = "greater")
+  shade_p_value(obs_stat = 0.49, direction = "greater") +
+  labs(title = "Age of Female Gymnasts")
 visualize(null_distfs3) +
-  shade_p_value(obs_stat = 0.47, direction = "greater")
+  shade_p_value(obs_stat = 0.47, direction = "greater") +
+  labs(title = "Age of Female Swimmers")
 visualize(null_distmg3) +
-  shade_p_value(obs_stat = 0.07, direction = "greater")
+  shade_p_value(obs_stat = 0.07, direction = "greater") +
+  labs(title = "Age of Male Gymnasts")
 visualize(null_distms3) +
-  shade_p_value(obs_stat = 0.58, direction = "greater")
+  shade_p_value(obs_stat = 0.58, direction = "greater") +
+  labs(title = "Age of Male Swimmers")
 ```
 
 only strong evidence for female gymnasts, female swimmers, and male swimmers for a difference in true mean age between medal winners and non medal winners, no strong evidence for difference between medal winners and non medal winners in male gymnastics because p-value was \> 0.01 (for all the medal winners are slightly older).
