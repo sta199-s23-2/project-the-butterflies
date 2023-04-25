@@ -1,5 +1,5 @@
 ---
-title: "Project title"
+title: "Ideal Body Type for Olympic Athletes"
 subtitle: "Report"
 format: html
 editor: visual
