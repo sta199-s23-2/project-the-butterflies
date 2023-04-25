@@ -290,20 +290,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">subtitle =</span> <span class="st">"by Sport, Gender, and Medal Won"</span>,</span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Height(cm)"</span>, <span class="at">y =</span> <span class="st">"Weight(kg)"</span>, <span class="at">color =</span> <span class="st">"Medal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="report_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<p><img src="report_files/figure-html/medalcolorsvisualization-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#what do yall think of the categories...?? Struggled w names a bit</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Age_Category =</span> <span class="fu">if_else</span>(Age <span class="sc">&lt;</span> <span class="dv">13</span>, <span class="st">"Adolescent"</span>,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">if_else</span>(Age <span class="sc">&lt;</span> <span class="dv">18</span>, <span class="st">"Teenager"</span>, </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>         <span class="fu">if_else</span>(Age <span class="sc">&lt;</span> <span class="dv">26</span>, <span class="st">"Young Adult"</span>, <span class="st">"Later Adult"</span>)))) <span class="sc">|&gt;</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>( <span class="at">y =</span> Points, <span class="at">fill =</span> Age_Category)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Category) <span class="sc">+</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Age_Category =</span> <span class="fu">if_else</span>(Age <span class="sc">&lt;</span> <span class="dv">13</span>, <span class="st">"Adolescent"</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">if_else</span>(Age <span class="sc">&lt;</span> <span class="dv">18</span>, <span class="st">"Teenager"</span>, </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">if_else</span>(Age <span class="sc">&lt;</span> <span class="dv">26</span>, <span class="st">"Young Adult"</span>, <span class="st">"Later Adult"</span>)))) <span class="sc">|&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>( <span class="at">y =</span> Points, <span class="at">fill =</span> Age_Category)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Category) <span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="report_files/figure-html/age-categories-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -350,7 +349,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>Warning in geom_col(binwidth = 1): Ignoring unknown parameters: `binwidth`</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="report_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="report_files/figure-html/heightvisualization-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -447,7 +446,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>Warning in geom_col(binwidth = 1): Ignoring unknown parameters: `binwidth`</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="report_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<p><img src="report_files/figure-html/weightvisualization-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -529,7 +528,7 @@ argument.</code></pre>
 <pre><code>Warning in geom_col(binwidth = 1): Ignoring unknown parameters: `binwidth`</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="report_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<p><img src="report_files/figure-html/agevisualization-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -627,17 +626,15 @@ argument.</code></pre>
 <p><span class="math inline">\(H_O: \mu_{med-height} - \mu_{no-med-height} = 0\)</span></p>
 <p><span class="math inline">\(H_A: \mu_{med-height} - \mu_{no-med-height} \neq 0\)</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: hypotestingheight</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>medaldata <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Medal2 =</span> <span class="fu">case_when</span>(Points <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"medal"</span>,</span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>                            Points <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"medal"</span>,</span>
-<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>                            Points <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"medal"</span>,</span>
-<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>                            Points <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"no medal"</span>))</span>
-<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>medaldata <span class="sc">|&gt;</span></span>
-<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Category, Medal2) <span class="sc">|&gt;</span></span>
-<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanheight =</span> <span class="fu">mean</span>(Height))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>medaldata <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Medal2 =</span> <span class="fu">case_when</span>(Points <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"medal"</span>,</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>                            Points <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"medal"</span>,</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>                            Points <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"medal"</span>,</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>                            Points <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"no medal"</span>))</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>medaldata <span class="sc">|&gt;</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Category, Medal2) <span class="sc">|&gt;</span></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanheight =</span> <span class="fu">mean</span>(Height))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'Category'. You can override using the
 `.groups` argument.</code></pre>
@@ -747,7 +744,7 @@ approximation based on the number of `reps` chosen in the `generate()` step. See
 <p><span class="math inline">\(H_O: \mu_{med-height} - \mu_{no-med-height} = 0\)</span></p>
 <p><span class="math inline">\(H_A: \mu_{med-height} - \mu_{no-med-height} &gt; 0\)</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|label: one-sided</span></span>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|label: one-sidedheight</span></span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>null_distfg <span class="sc">|&gt;</span></span>
 <span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> <span class="sc">-</span><span class="fl">1.11</span>, <span class="at">direction =</span> <span class="st">"less"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
