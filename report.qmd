@@ -93,6 +93,8 @@ data |>
 ```
 
 ```{r}
+#| label: medalcolorsvisualization
+
 data |>
   filter(!is.na(Medal)) |>
   ggplot(
@@ -112,7 +114,7 @@ data |>
 
 ```{r}
 #| label: age-categories
-#what do yall think of the categories...?? Struggled w names a bit
+
 data |>
   mutate(Age_Category = if_else(Age < 13, "Adolescent",
          if_else(Age < 18, "Teenager", 
@@ -125,6 +127,8 @@ data |>
 ```
 
 ```{r}
+#| label: medalpoints
+
 data |>
   filter(Category == "Male Swimming") |>
   group_by(Height) |>
@@ -132,12 +136,16 @@ data |>
 ```
 
 ```{r}
+#| label: heightdata
+
 height_data <- data |>
   group_by(Height, Category) |>
   summarize(medal_success = sum(Points))
 ```
 
 ```{r}
+#| label: heightvisualization
+
 height_data |>
   ggplot(
     aes(x = Height, y = medal_success, fill = Category)
@@ -147,6 +155,8 @@ height_data |>
 ```
 
 ```{r}
+#| label: heightmeans
+
 height_data |>
   group_by(Category) |>
   summarize(median = median(Height),
@@ -154,6 +164,8 @@ height_data |>
 ```
 
 ```{r}
+#| label: heightintervals
+
 set.seed(6) 
 height_data |>
   group_by(Category) |>
@@ -193,12 +205,16 @@ height_data |>
 ```
 
 ```{r}
+#| label: weightdata
+
 weight_data <- data |>
   group_by(Weight, Category) |>
   summarize(medal_success = sum(Points))
 ```
 
 ```{r}
+#| label: weightvisualization
+
 weight_data |>
   ggplot(
     aes(x = Weight, y = medal_success, fill = Category)
@@ -208,6 +224,8 @@ weight_data |>
 ```
 
 ```{r}
+#| label: weightintervals
+
 set.seed(6) 
 weight_data |>
   group_by(Category) |>
@@ -247,12 +265,16 @@ weight_data |>
 ```
 
 ```{r}
+#| label: agedata
+
 age_data <- data |>
   group_by(Age, Category) |>
   summarize(medal_success = sum(Points))
 ```
 
 ```{r}
+#| label: agevisualization
+
 age_data |>
   ggplot(
     aes(x = Age, y = medal_success, fill = Category)
@@ -262,6 +284,8 @@ age_data |>
 ```
 
 ```{r}
+#| label: weightmeans
+
 weight_data |>
   group_by(Category) |>
   summarize(median = median(Weight),
@@ -269,6 +293,8 @@ weight_data |>
 ```
 
 ```{r}
+#| label: agemeans
+
 age_data |>
   group_by(Category) |>
   summarize(median = median(Age),
@@ -276,6 +302,8 @@ age_data |>
 ```
 
 ```{r}
+#| label: ageintervals 
+
 set.seed(6) 
 age_data |>
   group_by(Category) |>
@@ -325,7 +353,6 @@ $H_O: \mu_{med-height} - \mu_{no-med-height} = 0$
 $H_A: \mu_{med-height} - \mu_{no-med-height} \neq 0$
 
 ```{r}
-
 #| label: hypotestingheight
 
 medaldata <- data |>
@@ -399,7 +426,7 @@ $H_O: \mu_{med-height} - \mu_{no-med-height} = 0$
 $H_A: \mu_{med-height} - \mu_{no-med-height} > 0$
 
 ```{r}
-#|label: one-sided
+#|label: one-sidedheight
 
 null_distfg |>
   get_p_value(obs_stat = -1.11, direction = "less")
