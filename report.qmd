@@ -18,7 +18,7 @@ library(tidymodels)
 
 ## ABSTRACT - CATHERINE
 
-## INTRODUCTION 
+## INTRODUCTION
 
 For this research project, we chose the topic of Olympic athletes from the sports of Swimming and Gymnastics. We are looking into the specific variables of age, height, and weight to see how these affect performance at a high level, and how these vary across the two sports. As such, our research question is: how do factors like age, height, and weight correlate with medal success rate across gymnastics and swimming? For this question, we hypothesize that the ideal height, weight, and age to win a medal will all be greater in swimming than in gymnastics.
 
