@@ -18,8 +18,7 @@ library(tidymodels)
 
 ## ABSTRACT - CATHERINE
 
-
-## INTRODUCTION - DONE
+## INTRODUCTION 
 
 For this research project, we chose the topic of Olympic athletes from the sports of Swimming and Gymnastics. We are looking into the specific variables of age, height, and weight to see how these affect performance at a high level, and how these vary across the two sports. As such, our research question is: how do factors like age, height, and weight correlate with medal success rate across gymnastics and swimming? For this question, we hypothesize that the ideal height, weight, and age to win a medal will all be greater in swimming than in gymnastics.
 
@@ -34,8 +33,6 @@ Each case in this data set corresponds to an individual athlete competing in an 
 For this research topic, we will have to view which ages, heights, and weights have received medals. I would hypothesize that for each separate sport, there is a different normal distribution for ages, heights, and weights that have medal success rates, showing an ideal age, height, and weight for each sport we visualize.
 
 # METHODOLOGY
-
-## justify the choice of statistical method(s) used to answer your research question
 
 To answer our research question, we used statistical methods of using our olympic data set and filtering it to only include the sports Female and Male Gymnastics, and Female and Male Swimming. From there, we filtered by only the rows that have Ages, Heights, and Weights. We then mapped out the height and weight for every olympian in these sports, then only the medalists, and finally faceted by which medal the olympians won. From there, using only the medalists, we found the mean and median of each category and height, weight, and age and visualized the mean. We also found a 99% confidence interval using the bootstrap method for the true population parameter of each of theses subcategories.
 
