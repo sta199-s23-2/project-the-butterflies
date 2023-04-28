@@ -18,7 +18,7 @@ library(tidymodels)
 
 ## ABSTRACT
 
-This project looked into body types of Olympic athletes in the sports of Swimming and Gymnastics to investigate how factors such as height, weight, and age affect the sport. In order to answer this question, we conducted numerous hypothesis tests, which hypothesize that these factors will be higher for swimmers than for gymnasts. As such, our research found evidence to support this hypothesis, and we found that the height and weights for swimmers was greater than that of gymnastics. Additionally, we looked at medal winners for each sport, which showed that medal winners for swimming were typically taller and heavier than non-medal winners, whereas the gymnasts were shorter and lighter than their non-medal winning counterparts. 
+This project looked into body types of Olympic athletes in the sports of Swimming and Gymnastics to investigate how factors such as height, weight, and age affect the sport. In order to answer this question, we conducted numerous hypothesis tests, which hypothesize that these factors will be higher for swimmers than for gymnasts. As such, our research found evidence to support this hypothesis, and we found that the height and weights for swimmers was greater than that of gymnastics. Additionally, we looked at medal winners for each sport, which showed that medal winners for swimming were typically taller and heavier than non-medal winners, whereas the gymnasts were shorter and lighter than their non-medal winning counterparts.
 
 ## INTRODUCTION
 
@@ -36,7 +36,7 @@ For this research topic, we will have to view which ages, heights, and weights h
 
 # METHODOLOGY
 
-To answer our research question, we used statistical methods of using our olympic data set and filtering it to only include the sports Female and Male Gymnastics, and Female and Male Swimming. From there, we filtered by only the rows that have Ages, Heights, and Weights. We then mapped out the height and weight for every olympian in these sports, then only the medalists, and finally faceted by which medal the olympians won. From there, using only the medalists, we found the mean and median of each category and height, weight, and age and visualized the mean. We also found a 99% confidence interval using the bootstrap method for the true population parameter of each of theses subcategories.
+To answer our research question, we used statistical methods of using our olympic data set and filtering it to only include the sports Female and Male Gymnastics, and Female and Male Swimming. From there, we filtered by only the rows that have Ages, Heights, and Weights. We then mapped out the height and weight for every olympian in these sports, then only the medalists, and finally faceted by which medal the olympians won. From there, using only the medalists, we found the mean and median of each category and height, weight, and age and visualized the mean. We also found a 99% confidence interval using the bootstrap method for the true population parameter of each of theses subcategories. Lastly, we created hypothesis tests to find the differences between physical characteristics of medalists vs non-medalists in each sport and in each characteristic.
 
 ```{r}
 #| label: data
