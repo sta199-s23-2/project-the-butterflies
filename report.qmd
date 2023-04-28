@@ -4,7 +4,7 @@ subtitle: "Report"
 format: html
 editor: visual
 execute:
-  echo: true
+  echo: false
 ---
 
 ```{r}
@@ -16,7 +16,9 @@ library(tidyverse)
 library(tidymodels)
 ```
 
-## ABSTRACT - CATHERINE
+## ABSTRACT
+
+This project looked into body types of Olympic athletes in the sports of Swimming and Gymnastics to investigate how factors such as height, weight, and age affect the sport. In order to answer this question, we conducted numerous hypothesis tests, which hypothesize that these factors will be higher for swimmers than for gymnasts. As such, our research found evidence to support this hypothesis, and we found that the height and weights for swimmers was greater than that of gymnastics. Additionally, we looked at medal winners for each sport, which showed that medal winners for swimming were typically taller and heavier than non-medal winners, whereas the gymnasts were shorter and lighter than their non-medal winning counterparts. 
 
 ## INTRODUCTION
 
